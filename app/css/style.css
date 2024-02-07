@@ -116,3 +116,9 @@ body {
 .container .info span .fa {
   color: #EF3B3A;
 }
+
+.welcome {
+  margin: 10px;
+  padding-top: 15px;
+  font-size:14px;
+}
