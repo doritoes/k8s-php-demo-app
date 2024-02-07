@@ -1,5 +1,5 @@
 <?php
-$configs = include('config.php');
+$configs = include('conf/config.php');
 session_start();
 ?>
 <!DOCTYPE HTML>
