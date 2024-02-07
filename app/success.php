@@ -2,27 +2,27 @@
 <html lang="en">
 <?php
 session_start();
-$fname = $_SESSION['fname'];
-$lname = $_SESSION['lname'];
-$email = $_SESSION['email'];
-$address = $_SESSION['address'];
-$dob = $_SESSION['dob'];
-$login = $_SESSION['login'];
-$gender= $_SESSION['gender'];
-$contact= $_SESSION['contact'];
+$fname = htmlspecialchars($_SESSION['fname']);
+$lname = htmlspecialchars($_SESSION['lname']);
+$email = htmlspecialchars($_SESSION['email']);
+$address = htmlspecialchars($_SESSION['address']);
+$dob = htmlspecialchars($_SESSION['dob']);
+$login = htmlspecialchars($_SESSION['login']);
+$gender= htmlspecialchars($_SESSION['gender']);
+$contact= htmlspecialchars($_SESSION['contact']);
 ?>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Webapp</title>
+    <title><?php echo $configs[appname]; ?></title>
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <div class="body">
+    <header class="body">
       <span class="welcome">Welcome &nbsp<?php echo $fname; echo " " ; echo $lname;?></span>
       <p><span class="welcome">Last logged in at : <?php echo $login; ?></span></p>
       <p><a href="logout.php">Log Out</a></p>
-    </div>
-  <div class="main">
+    </body>
+  <main class="main">
     <p>First Name : <?php echo $fname;?></p>
     <p>Last Name : <?php echo $lname;?></p>
     <p>Email : <?php echo $email;?></p>
@@ -35,7 +35,11 @@ $contact= $_SESSION['contact'];
       <button onclick="location.href='cpd.php'">CHANGE PASSWORD</button>
       <button onclick="location.href='remove.php'">REMOVE ACCOUNT</button>
     </div>
-  </div>
-<?php if($_SESSION['status']!="Active"){session_destroy();header("Location: index.php"); } ?>
-</body>
+  </main>
+<?php
+  if($_SESSION['status']!="Active") {
+    session_destroy();
+    header("Location: index.php");
+} ?>
+  </body>
 </html>
