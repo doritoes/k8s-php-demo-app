@@ -14,16 +14,13 @@ $con = mysqli_real_escape_string($connection, $_POST['contact']);
 
 $querych = mysqli_query($connection,"SELECT email from app_user where email='$email'");
 $flag = mysqli_num_rows($querych);
-if($flag >=1 )
-{
+if ($flag >=1 ) {
 	echo "User Exists";
 	header("Location: index.php");
-}
-else{
+} else {
 		$sql="INSERT INTO app_user (fname,lname,email,password,gender,contact) values		    ('$fname','$lname','$email','$pwd1','$gen','$con')";
 		$result=mysqli_query($connection,$sql);
-		if(empty($result))
-		{
+		if(empty($result)) {
 			$create="CREATE TABLE app_user(
 			fname varchar(255),
 			lname varchar(255),
