@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <?php
-$configs = include('config.php');
+$configs = include('conf/config.php');
 ?>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
