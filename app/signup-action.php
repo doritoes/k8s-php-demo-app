@@ -10,7 +10,7 @@ $fname = mysqli_real_escape_string($connection, $_POST['fname'] ?? '');
 $lname = mysqli_real_escape_string($connection, $_POST['lname'] ?? '');
 $email = mysqli_real_escape_string($connection, $_POST['email'] ?? '');
 $pwd1 = mysqli_real_escape_string($connection, $_POST['password1'] ?? '');
-$pwd2 = mysqli_real_escape_string($connection, $_POST['password2']) ?? '');
+$pwd2 = mysqli_real_escape_string($connection, $_POST['password2'] ?? '');
 $gen = mysqli_real_escape_string($connection, $_POST['gender'] ?? '');
 $con = mysqli_real_escape_string($connection, $_POST['contact'] ?? '');
 
