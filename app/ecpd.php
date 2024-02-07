@@ -43,7 +43,7 @@ function validate() {
         <p><input type="submit" value="CHANGE PASSWORD" id="submit"disabled="disabled">
       </form>		
     </main>
-    <?php if ($_SESSION['status']!="Active") {
+    <?php if ($_SESSION['status'] != "Active") {
       session_destroy();
       header("Location: index.php");
     } ?>
