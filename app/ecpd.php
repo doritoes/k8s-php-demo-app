@@ -7,6 +7,7 @@ $lname = $_SESSION['lname'];
 $login = $_SESSION['login'];
 ?>
   <head>
+    <meta charset="UTF-8">
     <title>Webapp</title>
     <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
