@@ -8,7 +8,7 @@ $lname = htmlspecialchars($_SESSION['lname']);
 $login = htmlspecialchars($_SESSION['login']);
 ?>
   <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title><?php echo $configs[appname]; ?></title>
     <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
