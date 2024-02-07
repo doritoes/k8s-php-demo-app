@@ -24,6 +24,9 @@ $login = $_SESSION['login'];
         <p><input type="submit" value="CONFIRM"/></p>
       </form>		
     </div>
-    <?php if($_SESSION['status']!="Active"){session_destroy();header("Location: index.php");} ?>
+    <?php if($_SESSION['status']!="Active"){
+      session_destroy();
+      header("Location: index.php");
+    } ?>
   </body>
 </html>
