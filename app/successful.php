@@ -6,7 +6,7 @@
      <link rel="stylesheet" href="css/style.css">
   </head>
   <body class="main">
-    <span class=header>SUCCESS</span>
+    <span class="header">SUCCESS</span>
     <p>Successfully Registered</p>
     <p><button onclick="location.href='index.php'">CLICK HERE TO LOGIN</button>
   </body>
