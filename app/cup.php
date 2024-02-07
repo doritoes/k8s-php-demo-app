@@ -13,7 +13,7 @@ $query = mysqli_query($connection,$sql);
 $p = mysqli_fetch_row($query);
 if ($pwd==$p[0]) {
   mysqli_query($connection,"UPDATE app_user set password='$npwd'");
-  header("Location:index.php");
+  header("Location: index.php");
   session_destroy();
 } else {
   header("Location: ecpd.php");
