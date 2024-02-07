@@ -3,6 +3,7 @@ return array(
     'host' => 'localhost',
     'username' => 'root',
     'password' => 'root',
-    'dbname' => 'app_db'
+    'dbname' => 'app_db',
+    'appname' => 'Example Application'
 );
 ?>
