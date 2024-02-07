@@ -134,3 +134,8 @@ body {
 .main {
   width: 90%;
 }
+
+.error {
+  color: #e11312;
+  font-size: 14px;
+}
