@@ -7,6 +7,7 @@ $lname = $_SESSION['lname'];
 $login = $_SESSION['login'];
 ?>
   <head>
+    <meta charset="UTF-8">
     <title>Webapp</title>
     <link rel="stylesheet" href="css/style.css">
   </head>
