@@ -4,7 +4,7 @@
 $configs = include('config.php');
 ?>
   <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title><?php echo $configs[appname]; ?></title>
     <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
@@ -38,7 +38,7 @@ function validate() {
           <p><input type="password" name="password1" id ="password1" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
           <p><input type="password" name="password2" id ="password2"placeholder="re enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title ="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
           <p><span id="message"></span>
-          <p><input type="submit" value="CREATE" id="submit"disabled="disabled">
+          <p><input type="submit" value="CREATE" id="submit" disabled="disabled">
           <p class="message">Already registered? <a href="index.php">Sign in here</a></p>
        </form>
       </div>
