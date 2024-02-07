@@ -1,9 +1,20 @@
 <?php
 $configs = include('conf/config.php');
 session_start();
-$connection = mysqli_connect($configs['host'], $configs['username'], $configs['password'], $configs['dbname']);
-if ($connection === false) {
-  die("ERROR: Could not connect. " . mysqli_connect_error());
+// Connect to the database
+try {
+    $connection = mysqli_connect($configs['host'], $configs['username'], $configs['password'], $configs['dbname']);
+    if (!$connection) {
+        throw new Exception('Database connection failed: ' . mysqli_connect_error());
+    }
+    // Proceed with database operations
+} catch (Exception $e) {
+    // Handle errors gracefully
+    header('HTTP/1.1 503 Service Unavailable'); // Set appropriate HTTP status code
+    echo "Error: Unable to connect to the database. Please try again later.";
+    // Optionally log the error for debugging:
+    error_log($e->getMessage());
+    exit; // Stop further execution
 }
 // Retrieve and escape form data
 $fn = mysqli_real_escape_string($connection, $_POST['fname'] ?? ''); // Use ?? for default values
