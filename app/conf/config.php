@@ -1,7 +1,7 @@
 <?php
 return array(
     'host' => 'sql-service',
-    'username' => 'meme',
+    'username' => 'appuser',
     'password' => 'mypass',
     'dbname' => 'app_db',
     'appname' => 'Example Application'
