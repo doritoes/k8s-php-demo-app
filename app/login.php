@@ -4,7 +4,7 @@ session_start();
 $_SESSION['status']="Active";
 $connection= mysqli_connect($configs[host], $configs[username], $configs[password], $configs[dbname]);
 if($connection === false){
-die("ERROR: Could not connect. " . mysqli_connect_error());
+  die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 $name = mysqli_real_escape_string($connection, $_POST['uname']);
 $password = mysqli_real_escape_string($connection, $_POST['password']);
@@ -32,23 +32,23 @@ $ll = mysqli_fetch_row($login);
 
 if($password==$row2[0] && !empty($row1[0]))
 {
-$_SESSION['fname'] = $f[0];
-$_SESSION['lname'] = $l[0];
-$_SESSION['email'] = $e[0];
-$_SESSION['login'] = $ll[0];
-$_SESSION['address'] = $a[0];
-$_SESSION['dob'] = $d[0];
-$_SESSION['gender'] = $g[0];
-$_SESSION['contact'] = $c[0];
-header("Location: success.php");
+  $_SESSION['fname'] = $f[0];
+  $_SESSION['lname'] = $l[0];
+  $_SESSION['email'] = $e[0];
+  $_SESSION['login'] = $ll[0];
+  $_SESSION['address'] = $a[0];
+  $_SESSION['dob'] = $d[0];
+  $_SESSION['gender'] = $g[0];
+  $_SESSION['contact'] = $c[0];
+  header("Location: success.php");
 }
 elseif(empty($row1[0]))
 {
-header("Location: signup.php");
+  header("Location: signup.php");
 }
 else
 {
-header("Location: error.html");
+  header("Location: error.php");
 }
 mysqli_close($connection); 
 ?>
