@@ -62,6 +62,7 @@ if ($_SESSION['status'] != "Active") {
   session_destroy();
   header("Location: index.php");
 }
+
 header("Location: success.php");
 mysqli_close($connection); 
 ?>
