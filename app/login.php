@@ -6,44 +6,32 @@ $connection = mysqli_connect($configs[host], $configs[username], $configs[passwo
 if ($connection === false) {
   die("ERROR: Could not connect. " . mysqli_connect_error());
 }
-$name = mysqli_real_escape_string($connection, $_POST['uname']);
-$password = mysqli_real_escape_string($connection, $_POST['password']);
-$user = mysqli_query($connection,"SELECT email FROM app_user WHERE email='$name'");
-$pwd = mysqli_query($connection,"SELECT password FROM app_user WHERE email='$name'");
-$fname = mysqli_query($connection,"SELECT fname FROM app_user WHERE email='$name'");
-$lname = mysqli_query($connection,"SELECT lname FROM app_user WHERE email='$name'");
-$email = mysqli_query($connection,"SELECT email FROM app_user WHERE email='$name'");
-$dob = mysqli_query($connection,"SELECT dob FROM app_user WHERE email='$name'");
-$gender = mysqli_query($connection,"SELECT gender FROM app_user WHERE email='$name'");
-$contact = mysqli_query($connection,"SELECT contact FROM app_user WHERE email='$name'");
-$address = mysqli_query($connection,"SELECT address FROM app_user WHERE email='$name'");
-$login = mysqli_query($connection,"SELECT login FROM app_user WHERE email='$name'");
-$update = mysqli_query($connection,"UPDATE app_user set login=now()");
-$row1 = mysqli_fetch_row($user);
-$row2 = mysqli_fetch_row($pwd);
-$f = mysqli_fetch_row($fname);
-$l = mysqli_fetch_row($lname);
-$e = mysqli_fetch_row($email);
-$a = mysqli_fetch_row($address);
-$d = mysqli_fetch_row($dob);
-$g = mysqli_fetch_row($gender);
-$c = mysqli_fetch_row($contact);
-$ll = mysqli_fetch_row($login);
+// Retrieve and sanitize user input
+$name = mysqli_real_escape_string($connection, $_POST['uname'] ?? '');
+$password = mysqli_real_escape_string($connection, $_POST['password'] ?? '');
 
-if($password==$row2[0] && !empty($row1[0])) {
-  $_SESSION['fname'] = $f[0];
-  $_SESSION['lname'] = $l[0];
-  $_SESSION['email'] = $e[0];
-  $_SESSION['login'] = $ll[0];
-  $_SESSION['address'] = $a[0];
-  $_SESSION['dob'] = $d[0];
-  $_SESSION['gender'] = $g[0];
-  $_SESSION['contact'] = $c[0];
-  header("Location: success.php");
-} elseif(empty($row1[0])) {
-  header("Location: signup.php");
+$stmt = mysqli_prepare($connection, "SELECT email, password, fname, lname, dob, gender, contact, address, login FROM app_user WHERE email = ?");
+mysqli_stmt_bind_param($stmt, "s", $name); // Bind username for filtering
+
+if (mysqli_stmt_execute($stmt)) {
+    mysqli_stmt_bind_result($stmt, $email, $credential, $fname, $lname, $dob, $gender, $contact, $address, $login);
+    if (mysqli_stmt_fetch($stmt) && $password === $credential {
+      $_SESSION['fname'] = $fname;
+      $_SESSION['lname'] = $lname;
+      $_SESSION['email'] = $email;
+      $_SESSION['login'] = $login;
+      $_SESSION['address'] = $addres;
+      $_SESSION['dob'] = $dob;
+      $_SESSION['gender'] = $gender;
+      $_SESSION['contact'] = $contact;
+      header("Location: success.php");
+      } else {
+        session_destroy();
+        header("Location: error.php");
 } else {
-  header("Location: error.php");
+    session_destroy();
+    // Handle query error
+    die("ERROR: Prepared statement error");
 }
 mysqli_close($connection); 
 ?>
