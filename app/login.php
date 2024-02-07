@@ -36,9 +36,10 @@ if (mysqli_stmt_execute($stmt)) {
       $_SESSION['gender'] = $gender;
       $_SESSION['contact'] = $contact;
       header("Location: success.php");
-      } else {
-        session_destroy();
-        header("Location: error.php");
+    } else {
+      session_destroy();
+      header("Location: error.php");
+    }
 } else {
     session_destroy();
     // Handle query error
