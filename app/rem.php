@@ -1,7 +1,7 @@
 <?php
 $configs = include('conf/config.php');
 session_start();
-$connection = mysqli_connect($configs[host], $configs[username], $configs[password], $configs[dbname]);
+$connection = mysqli_connect($configs['host'], $configs['username'], $configs['password'], $configs['dbname']);
 if ($connection === false) {
   die("ERROR: Could not connect. " . mysqli_connect_error());
 }
