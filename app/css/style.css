@@ -139,3 +139,9 @@ body {
   color: #e11312;
   font-size: 14px;
 }
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Add some space between buttons */
