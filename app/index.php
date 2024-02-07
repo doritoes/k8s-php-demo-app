@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -12,8 +12,7 @@
           <input type="text" placeholder="username" name="uname" required />
           <input type="password" placeholder="password" name="password" required />
           <input type="submit" value="login" />
-          <p class="message">Not registered? <a href="signup.php">Create an
-              account</a></p>
+          <p class="message">Not registered? <a href="signup.php">Create an account</a></p>
         </form>
       </div>
     </div>
