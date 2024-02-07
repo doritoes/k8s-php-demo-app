@@ -23,7 +23,7 @@ if (mysql_stmt_fetch($stmt) && password_verify($pwd, $credential)) {
     header("Location: index.php");
   }
 }
-Header("Location: erem.php");
+header("Location: erem.php");
 mysql_stmt_close($stmt);
 mysqli_close($connection); 
 ?>
