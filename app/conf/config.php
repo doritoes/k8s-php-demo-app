@@ -1,8 +1,8 @@
 <?php
 return array(
-    'host' => 'localhost',
-    'username' => 'root',
-    'password' => 'root',
+    'host' => 'sql-service',
+    'username' => 'meme',
+    'password' => 'mypass',
     'dbname' => 'app_db',
     'appname' => 'Example Application'
 );
