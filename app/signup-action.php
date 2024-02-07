@@ -21,7 +21,7 @@ if (mysqli_stmt_fetch($stmt)) {
     exit; // user exists, prevent further execution
 }
 
-if (mysqli_error($connection) {
+if (mysqli_error($connection)) {
   // Handle missing table
   $create = "CREATE TABLE IF NOT EXISTS app_user (
              fname varchar(255),
