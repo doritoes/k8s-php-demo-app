@@ -1,8 +1,8 @@
 <?php
 $configs = include('config.php');
 session_start();
-$_SESSION['status']="Active";
-$connection= mysqli_connect($configs[host], $configs[username], $configs[password], $configs[dbname]);
+$_SESSION['status'] = "Active";
+$connection = mysqli_connect($configs[host], $configs[username], $configs[password], $configs[dbname]);
 if($connection === false){
   die("ERROR: Could not connect. " . mysqli_connect_error());
 }
@@ -30,8 +30,7 @@ $g = mysqli_fetch_row($gender);
 $c = mysqli_fetch_row($contact);
 $ll = mysqli_fetch_row($login);
 
-if($password==$row2[0] && !empty($row1[0]))
-{
+if($password==$row2[0] && !empty($row1[0])) {
   $_SESSION['fname'] = $f[0];
   $_SESSION['lname'] = $l[0];
   $_SESSION['email'] = $e[0];
@@ -41,13 +40,9 @@ if($password==$row2[0] && !empty($row1[0]))
   $_SESSION['gender'] = $g[0];
   $_SESSION['contact'] = $c[0];
   header("Location: success.php");
-}
-elseif(empty($row1[0]))
-{
+} elseif(empty($row1[0])) {
   header("Location: signup.php");
-}
-else
-{
+} else {
   header("Location: error.php");
 }
 mysqli_close($connection); 
