@@ -1,5 +1,5 @@
 <?php
-$configs = include('config.php');
+$configs = include('conf/config.php');
 session_start();
 $_SESSION['status'] = "Active";
 $connection = mysqli_connect($configs[host], $configs[username], $configs[password], $configs[dbname]);
