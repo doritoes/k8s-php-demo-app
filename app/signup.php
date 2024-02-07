@@ -118,7 +118,7 @@ function validate() {
   <div class="login-page" id="check">
     <div class="form">
       New User ?
-      <form action="signup.php" method="post">
+      <form action="signup-action.php" method="post">
         <input type="text" name="fname" placeholder="first name"pattern="^[a-zA-Z]+$" title="Please enter letters only"required>
         <p><input type="text" name="lname" placeholder="last name" pattern="^[a-zA-Z]+$" title="Please enter letters only" required></p>
         <p>Gender :<input type="radio" name="gender" value="male" checked> Male <input type="radio" name="gender" value="female"> Female</p>
