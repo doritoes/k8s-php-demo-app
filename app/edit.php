@@ -39,7 +39,7 @@ $_SESSION['lname']=$ln;
 $_SESSION['fname']=$fn;
 $_SESSION['dob']=$dob;
 $_SESSION['contact']=$con;
-if($_SESSION['status']!="Active") {
+if ($_SESSION['status'] != "Active") {
   session_destroy();
   header("Location: index.php");
 }
