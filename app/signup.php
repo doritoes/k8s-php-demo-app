@@ -34,7 +34,7 @@ function validate() {
           <p><input type="text" name="lname" placeholder="last name" pattern="^[a-zA-Z]+$" title="Please enter letters only" required></p>
           <p>Gender :<input type="radio" name="gender" value="male" checked> Male <input type="radio" name="gender" value="female"> Female</p>
           <p><input type="email" name="email" placeholder="email address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please enter valid email address" required>
-          <p><input type="tel" name="contact" placeholder="contact no" maxlength="10" pattern="[789][0-9]{9}" title="Please enter valid 10 digit contact no" required>
+          <p><input type="tel" name="contact" placeholder="contact no" maxlength="10" pattern="[1-9][0-9]{9}" title="Please enter valid 10 digit contact no" required>
           <p><input type="password" name="password1" id ="password1" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
           <p><input type="password" name="password2" id ="password2"placeholder="re enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title ="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
           <p><span id="message"></span>
