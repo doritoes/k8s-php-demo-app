@@ -1,14 +1,15 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <?php
+$configs = include('config.php');
 session_start();
-$fname = $_SESSION['fname'];
-$lname = $_SESSION['lname'];
-$login = $_SESSION['login'];
+$fname = htmlspecialchars($_SESSION['fname']);
+$lname = htmlspecialchars($_SESSION['lname']);
+$login = htmlspecialchars($_SESSION['login']);
 ?>
   <head>
     <meta charset="UTF-8">
-    <title>Webapp</title>
+    <title><?php echo $configs[appname]; ?></title>
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>		
