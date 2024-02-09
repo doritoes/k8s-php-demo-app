@@ -18,7 +18,6 @@ try {
              dob date,
              login timestamp)";
   mysqli_query($connection, $create);
-}
 } catch (Exception $e) {
     // Handle errors gracefully
     header('HTTP/1.1 503 Service Unavailable'); // Set appropriate HTTP status code
