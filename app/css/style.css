@@ -9,6 +9,24 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+main {
+  padding-bottom: 10010px;
+  margin-bottom: -10000px;
+  float: left;
+  width: 100%;
+}
+
+main button{
+  font-family: sans-serif;
+  text-transform: uppercase;
+  background: #26ade4;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 12px;
+  text-align:center;
+}
+
 /* Login page styles */
 .login-page {
   width: 360px;
