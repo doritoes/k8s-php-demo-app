@@ -28,7 +28,7 @@ try {
 }
 
 // Execute the query
-$sql = "SELECT COUNT(*) FROM alpha";
+$sql = "SELECT COUNT(*) FROM app_user";
 $result = $connection->query($sql);
 
 // Check for errors
