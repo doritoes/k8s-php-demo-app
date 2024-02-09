@@ -22,7 +22,7 @@ $login = htmlspecialchars($_SESSION['login']);
     </header>
     <main class="main">
       <form action="edit.php" method="post">
-        <filedset>
+        <fieldset>
           <legend>Edit Account</legend>
           <p>
             <label for="fname">First Name:</label>
