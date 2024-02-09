@@ -26,5 +26,20 @@ try {
     error_log($e->getMessage());
     exit; // Stop further execution
 }
-echo "Test";
+
+// Execute the query
+$sql = "SELECT COUNT(*) FROM alpha";
+$result = $connection->query($sql);
+
+// Check for errors
+if (!$result) {
+  die("Error executing query: " . $connection->error);
+}
+
+// Get the number of rows
+$row = $result->fetch_assoc();
+$num_rows = $row["COUNT(*)"];
+
+// Print the number of rows
+echo "Number of rows in table alpha: " . $num_rows;
 ?>
