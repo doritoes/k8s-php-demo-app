@@ -13,9 +13,20 @@ session_start();
     <div class="login-page">
       <div class="form">
         <form action="login.php" method="post">
-          <input type="text" placeholder="username" name="uname" required>
-          <input type="password" placeholder="password" name="password" required>
-          <input type="submit" value="login">
+          <fieldset>
+            <legend>Log In</legend>
+            <p>
+              <label for="uname">Username:</label>
+              <input type="text" placeholder="username" name="uname" required>
+            </p>
+            <p>
+              <label for="password">Password:</label>
+              <input type="password" placeholder="password" name="password" required>
+            </p>
+            <p>
+              <input type="submit" value="login">
+            </p>
+          </fieldset>
           <p class="message">Not registered? <a href="signup.php">Create an account</a></p>
         </form>
       </div>
