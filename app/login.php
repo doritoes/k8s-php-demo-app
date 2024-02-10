@@ -28,6 +28,7 @@ try {
           header("Location: success.php");
       } else {
         echo "$name,$email,$password,$credential";
+        exit;
       }
     }
   }
