@@ -22,7 +22,12 @@ $login = htmlspecialchars($_SESSION['login']);
       <div class="body">
         <span class="welcome"><strong>Welcome</strong> &nbsp<?php echo $fname; echo " " ; echo $lname ;?></span>
         <p><span class="welcome">Last logged in at : <?php echo $login; ?></span></p>
-        <p><a href="logout.php">Log Out</a></p>
+        <nav>
+          <a href="success.php">Home</a>
+        </nav>
+        <nav>
+          <a href="logout.php">Log Out</a>
+        </nav>
       </div>
     </header>
     <main>
