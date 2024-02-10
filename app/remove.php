@@ -33,7 +33,7 @@ $login = htmlspecialchars($_SESSION['login']);
       </form>		
     </main>
     <?php
-      if ($_SESSION['status']!="Active") {
+      if ($_SESSION['status'] != "Active") {
         session_destroy();
         header("Location: index.php");
     } ?>
