@@ -1,6 +1,11 @@
 <?php
 $configs = include('conf/config.php');
 session_start();
+if (!isset($_SESSION['status']) || $_SESSION['status'] !== "Active") {
+    // Session is not active or invalid
+    header("Location: loggedout.php"); // Redirect to an error page
+    exit(); // Stop further execution of the current page
+}
 // Connect to the database
 try {
   $connection = mysqli_connect($configs['host'], $configs['username'], $configs['password'], $configs['dbname']);
