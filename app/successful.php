@@ -8,11 +8,11 @@ $configs = include('conf/config.php');
     <title><?php echo $configs['appname']; ?></title>
      <link rel="stylesheet" href="css/style.css">
   </head>
-  <body
+  <body>
     <header>
-    <span class="header">SUCCESS</span>
-    <p>Successfully Registered</p>
-  </header>
+      <span class="header">SUCCESS</span>
+      <p>Successfully Registered</p>
+    </header>
     <main>
       <p><button onclick="location.href='index.php'">CLICK HERE TO LOGIN</button></p>
     </main>
