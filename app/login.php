@@ -30,7 +30,12 @@ try {
         echo "$name,$email,$password,$credential";
         exit;
       }
+    } else {
+      echo "failed statement";
+      exit;
     }
+  } else {
+    echo "failed to execute";
   }
 } catch (Exception $e) {
     // Handle errors gracefully
