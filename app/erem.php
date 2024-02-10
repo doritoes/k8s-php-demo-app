@@ -6,6 +6,7 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== "Active") {
     // Session is not active or invalid
     header("Location: loggedout.php"); // Redirect to an error page
     exit(); // Stop further execution of the current page
+}
 $configs = include('conf/config.php');  
 $fname = htmlspecialchars($_SESSION['fname']);
 $lname = htmlspecialchars($_SESSION['lname']);
@@ -32,9 +33,5 @@ $login = htmlspecialchars($_SESSION['login']);
           <p><input type="submit" value="CONFIRM"/></p>
       </form>		
     </main>
-    <?php if($_SESSION['status']!="Active") {
-      session_destroy();
-      header("Location: index.php");
-    } ?>
   </body>
 </html>
