@@ -18,7 +18,7 @@ try {
   mysqli_stmt_bind_param($stmt, "s", $a);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_bind_result($stmt, $credential);
-  if (mysqli_stmt_fetch($stmt) && $pwd === $credential)) {
+  if (mysqli_stmt_fetch($stmt) && $pwd === $credential) {
     // delete user
     $stmt = mysqli_prepare($connection, "DELETE FROM app_user WHERE email = ?");
     mysqli_stmt_bind_param($stmt, "s", $a);
