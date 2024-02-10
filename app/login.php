@@ -15,17 +15,16 @@ try {
     mysqli_stmt_bind_result($stmt, $email, $credential, $fname, $lname, $dob, $gender, $contact, $address, $login);
     if (mysqli_stmt_fetch($stmt)) {
       if ($password === $credential) {
+        $now = date('Y-m-d H:i:s'); // Get current datetime in YYYY-MM-DD HH:MM:SS format
         $_SESSION['status'] = "Active";
         $_SESSION['fname'] = $fname;
         $_SESSION['lname'] = $lname;
         $_SESSION['email'] = $email;
-        $_SESSION['login'] = $login;
+        $_SESSION['login'] = $how;
         $_SESSION['address'] = $address;
         $_SESSION['dob'] = $dob;
         $_SESSION['gender'] = $gender;
         $_SESSION['contact'] = $contact;
-        $now = date('Y-m-d H:i:s'); // Get current datetime in YYYY-MM-DD HH:MM:SS format
-        $_SESSION['login'] = $login;
         mysqli_stmt_close($stmt);
         $stmt = mysqli_prepare($connection, "UPDATE app_user SET login = ? WHERE email = ?");
         mysqli_stmt_bind_param($stmt, "ss", $now, $email);
