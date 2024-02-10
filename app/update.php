@@ -1,5 +1,3 @@
-<!DOCTYPE HTML>
-<html lang="en">
 <?php
 $configs = include('conf/config.php');
 session_start();
@@ -12,20 +10,22 @@ $fname = htmlspecialchars($_SESSION['fname']);
 $lname = htmlspecialchars($_SESSION['lname']);
 $login = htmlspecialchars($_SESSION['login']);
 ?>
+<!DOCTYPE HTML>
+<html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title><?php echo $configs['appname']; ?></title>
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <header class="body">
+    <header>
       <span class="welcome">Welcome &nbsp<?php echo $fname; echo " " ; echo $lname ; ?></span>
       <p><span class="welcome">Last logged in at : <?php echo $login; ?></span></p>
       <nav>
         <a href="logout.php">Log Out</a>
       </nav>
     </header>
-    <main class="main">
+    <main>
       <form action="edit.php" method="post">
         <fieldset>
           <legend>Edit Account</legend>
