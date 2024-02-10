@@ -26,6 +26,7 @@ try {
         $_SESSION['contact'] = $contact;
         $now = date('Y-m-d H:i:s'); // Get current datetime in YYYY-MM-DD HH:MM:SS format
         $_SESSION['login'] = $login;
+        mysqli_stmt_close($stmt);
         $stmt = mysqli_prepare($connection, "UPDATE app_user SET login = ? WHERE email = ?");
         mysqli_stmt_bind_param($stmt, "ss", $now, $email);
         mysqli_stmt_execute($stmt);
