@@ -34,6 +34,9 @@ $_SESSION['address'] = $ad ?? $_SESSION['address'];
 $_SESSION['dob'] = $dob ?? $_SESSION['dob'];
 $_SESSION['contact'] = $con ?? $_SESSION['contact'];
 
+// Convert dob to MySQL date format (YYYY-MM-DD)
+$dob_mysql = date('Y-m-d', strtotime($dob)); // Use strtotime to handle various input formats
+
 // Define SQL query template with named placeholders
 $sql = "UPDATE app_user SET fname = ?, lname = ?, address = ?, dob = ?, contact = ? WHERE email = ?";
 
@@ -46,7 +49,7 @@ if (!$stmt) {
 }
 
 // Bind parameters using the escaped and potentially updated values
-mysqli_stmt_bind_param($stmt, "ssssss", $fn, $ln, $ad, $dob, $con, $_SESSION['email']);
+mysqli_stmt_bind_param($stmt, "ssssss", $fn, $ln, $ad, $dob_mysql, $con, $_SESSION['email']);
 
 // Execute the prepared statement (handle errors)
 if (!mysqli_stmt_execute($stmt)) {
