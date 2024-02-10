@@ -51,7 +51,7 @@ $gender = htmlspecialchars($_SESSION['gender'] ?? '');
         </p>
         <p>
           <label for="contact">Contact number:</label>
-        <input type="text" name="contact" placeholder="Contact number" maxlength="10" pattern="[1-9][0-9]{9}" title="Please enter valid 10 digit contact number" value="<?php echo $contact; ?>">
+          <input type="text" name="contact" placeholder="Contact number" maxlength="10" pattern="[1-9][0-9]{9}" title="Please enter valid 10 digit contact number" value="<?php echo $contact; ?>">
         </p>
         <p>
           <label for="address">Address:</label>
@@ -59,12 +59,12 @@ $gender = htmlspecialchars($_SESSION['gender'] ?? '');
         </p>
         <p>
           <label for "dob">Date of birth</label>
-          <input type="date" name="dob" placeholder="Date of birth" value="<?php echo dob; ?>">
+          <input type="date" name="dob" placeholder="Date of birth" value="<?php echo $dob; ?>">
         </p>
         <p>
           <input type="submit" value="UPDATE">  
         </p>
-      </filedset>
+        </fieldset>
     </form>		
   </main>
   </body>
