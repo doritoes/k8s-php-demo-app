@@ -3,6 +3,11 @@
 <?php
 $configs = include('conf/config.php');
 session_start();
+if (!isset($_SESSION['status']) || $_SESSION['status'] !== "Active") {
+  // Session is not active or invalid
+  header("Location: loggedout.php"); // Redirect to an error page
+  exit(); // Stop further execution of the current page
+}
 $fname = htmlspecialchars($_SESSION['fname']);
 $lname = htmlspecialchars($_SESSION['lname']);
 $login = htmlspecialchars($_SESSION['login']);
@@ -13,12 +18,14 @@ $login = htmlspecialchars($_SESSION['login']);
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>		
-    <header class="body">
-      <span class="welcome">Welcome &nbsp<?php echo $fname; echo " " ; echo $lname ;?></span>
-      <p><span class="welcome">Last logged in at : <?php echo $login; ?></span></p>
-      <p><a href="logout.php">Log Out</a></p>
+    <header>
+      <div class="body">
+        <span class="welcome"><strong>Welcome</strong> &nbsp<?php echo $fname; echo " " ; echo $lname ;?></span>
+        <p><span class="welcome">Last logged in at : <?php echo $login; ?></span></p>
+        <p><a href="logout.php">Log Out</a></p>
+      </div>
     </header>
-    <main class="main">
+    <main>
       <form action="rem.php" method="post">
         <fieldset>
           <legend>Remove Account</legend>
@@ -32,10 +39,5 @@ $login = htmlspecialchars($_SESSION['login']);
         </fieldset>
       </form>		
     </main>
-    <?php
-      if ($_SESSION['status'] != "Active") {
-        session_destroy();
-        header("Location: index.php");
-    } ?>
   </body>
 </html>
