@@ -18,6 +18,11 @@ try {
       if ($password == $credential) {
         echo "set point $name,$email,$password,$credential";
         echo "types " . gettype($password) . "," . gettype($credential);
+        if ($password === $credential) {
+          echo "GOOD";
+        } else {
+          echo "BAD";
+        }
         exit;
           $_SESSION['fname'] = $fname;
           $_SESSION['lname'] = $lname;
