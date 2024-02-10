@@ -16,16 +16,18 @@ try {
     mysqli_stmt_bind_result($stmt, $email, $credential, $fname, $lname, $dob, $gender, $contact, $address, $login);
     if (mysqli_stmt_fetch($stmt)) {
       if ($password === $credential) {
-          $_SESSION['status'] = "Active";
-          $_SESSION['fname'] = $fname;
-          $_SESSION['lname'] = $lname;
-          $_SESSION['email'] = $email;
-          $_SESSION['login'] = $login;
-          $_SESSION['address'] = $address;
-          $_SESSION['dob'] = $dob;
-          $_SESSION['gender'] = $gender;
-          $_SESSION['contact'] = $contact;
-          header("Location: success.php");
+        $_SESSION['status'] = "Active";
+        $_SESSION['fname'] = $fname;
+        $_SESSION['lname'] = $lname;
+        $_SESSION['email'] = $email;
+        $_SESSION['login'] = $login;
+        $_SESSION['address'] = $address;
+        $_SESSION['dob'] = $dob;
+        $_SESSION['gender'] = $gender;
+        $_SESSION['contact'] = $contact;
+        echo "SUCCESS my friend";
+        exit;
+        header("Location: success.php");
       }
     } else {
       echo "failed statement";
