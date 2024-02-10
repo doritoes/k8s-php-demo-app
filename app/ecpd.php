@@ -1,12 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
 $configs = include('conf/config.php');
 session_start();
+if (!isset($_SESSION['status']) || $_SESSION['status'] !== "Active") {
+    // Session is not active or invalid
+    header("Location: loggedout.php"); // Redirect to an error page
+    exit(); // Stop further execution of the current page
+}
 $fname = htmlspecialchars($_SESSION['fname']);
 $lname = htmlspecialchars($_SESSION['lname']);
 $login = htmlspecialchars($_SESSION['login']);
 ?>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title><?php echo $configs['appname']; ?></title>
@@ -34,7 +39,7 @@ function validate() {
       <p> <a href="logout.php">Log Out</a>
     </header>
     <main class="main">
-      <span class="error">Please give correct password</span>
+      <span class="error">Please provide the correct password</span>
       <form action="cup.php" method="post">
         <p>Current Password : <input type="password" name="password" placeholder="current password" required/>
         <p>Enter New Password :<input type="password" name="password1" id ="password1" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
