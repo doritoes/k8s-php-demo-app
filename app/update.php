@@ -59,7 +59,7 @@ $gender = htmlspecialchars($_SESSION['gender'] ?? '');
         </p>
         <p>
           <label for "dob">Date of birth</label>
-          <input type="date" name="dob" placeholder="Date of birth" value="<?php echo $address; ?>">
+          <input type="date" name="dob" placeholder="Date of birth" value="<?php echo dob; ?>">
         </p>
         <p>
           <input type="submit" value="UPDATE">  
