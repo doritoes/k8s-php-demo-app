@@ -18,19 +18,19 @@ $contact= htmlspecialchars($_SESSION['contact']);
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <header class="body">
+    <header>
       <span class="welcome">Welcome &nbsp<?php echo $fname; echo " " ; echo $lname;?></span>
-      <p><span class="welcome">Last logged in at : <?php echo $login; ?></span></p>
+      <p><span class="welcome">Last logged in at :<?php echo $login; ?></span></p>
       <p><a href="logout.php">Log Out</a></p>
-    </body>
-    <main class="main">
-      <p>First Name : <?php echo $fname;?></p>
-      <p>Last Name : <?php echo $lname;?></p>
-      <p>Email : <?php echo $email;?></p>
-      <p>Contact No :<?php echo $contact;?></p>
-      <p>Address :<?php echo $address;?></p>
-      <p>Date of Birth :<?php $newDate = date("d/m/Y", strtotime($dob));echo $newDate;?></p>
-      <p>You are &nbsp <?php echo $gender;?></p>
+    </header>
+    <main>
+      <p>First Name: <?php echo $fname;?></p>
+      <p>Last Name: <?php echo $lname;?></p>
+      <p>Email: <?php echo $email;?></p>
+      <p>Contact Number: <?php echo $contact;?></p>
+      <p>Address: <?php echo $address;?></p>
+      <p>Date of Birth: <?php $newDate = date("d/m/Y", strtotime($dob));echo $newDate;?></p>
+      <p>You are: <?php echo $gender;?></p>
       <div class="button-container">
         <button onclick="location.href='update.php'">UPDATE DETAILS</button>
         <button onclick="location.href='cpd.php'">CHANGE PASSWORD</button>
