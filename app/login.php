@@ -26,6 +26,8 @@ try {
           $_SESSION['contact'] = $contact;
           $_SESSION['status'] = "Active";
           header("Location: success.php");
+      } else {
+        echo "$name,$email,$password,$credential";
       }
     }
   }
