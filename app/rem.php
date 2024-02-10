@@ -13,6 +13,8 @@ try {
     mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_bind_result($stmt, $credential);
+    echo "$a,$pwd,$credential";
+    exit;
     if (mysqli_stmt_fetch($stmt) && password_verify($pwd, $credential)) {
       // delete user
       $stmt = mysqli_prepare($connection, "DELETE FROM app_user WHERE email = ?");
