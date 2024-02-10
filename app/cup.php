@@ -32,7 +32,7 @@ if ($pwd == $saved_credentials) {
   // Prepared statement for password update
   $stmt = mysqli_prepare($connection, "UPDATE app_user SET password = ? WHERE email = ?");
   mysqli_stmt_bind_param($stmt, "ss", $npwd, $a);
-  mysqli_stmt_executre($stmt);
+  mysqli_stmt_execute($stmt);
   header("Location: index.php");
   session_destroy();
 } else {
