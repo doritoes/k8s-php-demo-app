@@ -1,8 +1,12 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <?php
-$configs = include('conf/config.php');
 session_start();
+if (!isset($_SESSION['status']) || $_SESSION['status'] !== "Active") {
+    // Session is not active or invalid
+    header("Location: index.php"); // Redirect to an error page
+    exit(); // Stop further execution of the current page
+$configs = include('conf/config.php');  
 $fname = htmlspecialchars($_SESSION['fname']);
 $lname = htmlspecialchars($_SESSION['lname']);
 $login = htmlspecialchars($_SESSION['login']);
