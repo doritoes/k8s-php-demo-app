@@ -24,7 +24,7 @@ $(document).ready(function() {
 function validate() {
   var newPassword = $("#password1").val();
   var confirmedPassword = $("#password2").val();
-  var passwordMismatch = newPassword !== confirmed Password;
+  var passwordMismatch = newPassword !== confirmedPassword;
   $("#message").html(passwordMismatch
     ? '<font color="red"><b>Passwords don\'t match</b></font>'
     : '<font color="green"><b>Passwords match</b></font>');
