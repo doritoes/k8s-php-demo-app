@@ -20,7 +20,7 @@ try {
           $_SESSION['lname'] = $lname;
           $_SESSION['email'] = $email;
           $_SESSION['login'] = $login;
-          $_SESSION['address'] = $addres;
+          $_SESSION['address'] = $address;
           $_SESSION['dob'] = $dob;
           $_SESSION['gender'] = $gender;
           $_SESSION['contact'] = $contact;
