@@ -59,9 +59,5 @@ $login = htmlspecialchars($_SESSION['login']);
       </filedset>
     </form>		
   </main>
-  <?php if($_SESSION['status']!="Active"){
-      session_destroy();
-      header("Location: index.php");
-    } ?>
   </body>
 </html>
