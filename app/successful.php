@@ -9,7 +9,7 @@ $configs = include('conf/config.php');
      <link rel="stylesheet" href="css/style.css">
   </head>
   <body
-    <header class="main">
+    <header>
     <span class="header">SUCCESS</span>
     <p>Successfully Registered</p>
     <p><button onclick="location.href='index.php'">CLICK HERE TO LOGIN</button></p>
