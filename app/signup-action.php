@@ -33,22 +33,7 @@ if (mysqli_stmt_fetch($stmt)) {
     exit; // user exists, prevent further execution
 }
 
-if (mysqli_error($connection)) {
-  // Handle missing table
-  $create = "CREATE TABLE IF NOT EXISTS app_user (
-             fname varchar(255),
-             lname varchar(255),
-             email varchar(255) Primary Key,
-             password varchar(50),
-             address varchar(255),
-             gender varchar(5),
-             contact varchar(15),
-             dob date,
-             login timestamp)";
-  mysqli_query($connection, $create);
-}
-
-$stmt = mysqpli_prepare($connection, "INSERT INTO app_user (fname, lname, email, password, gender, contact) VALUES (?, ?, ?, ?, ?, ?)");
+$stmt = mysqli_prepare($connection, "INSERT INTO app_user (fname, lname, email, password, gender, contact) VALUES (?, ?, ?, ?, ?, ?)");
 mysqli_stmt_bind_param($stmt, "ssssss", $fname, $lname, $email, $password, $gen, $con);
 mysqli_stmt_execute($stmt);
 
