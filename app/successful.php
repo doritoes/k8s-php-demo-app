@@ -12,7 +12,9 @@ $configs = include('conf/config.php');
     <header>
     <span class="header">SUCCESS</span>
     <p>Successfully Registered</p>
-    <p><button onclick="location.href='index.php'">CLICK HERE TO LOGIN</button></p>
   </header>
+    <main>
+      <p><button onclick="location.href='index.php'">CLICK HERE TO LOGIN</button></p>
+    </main>
   </body>
 </html>
