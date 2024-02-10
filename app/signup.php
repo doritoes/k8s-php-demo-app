@@ -31,17 +31,43 @@ function validate() {
       <div class="form">
         New User ?
         <form action="signup-action.php" method="post">
-          <input type="text" name="fname" placeholder="first name"pattern="^[a-zA-Z]+$" title="Please enter letters only"required>
-          <p><input type="text" name="lname" placeholder="last name" pattern="^[a-zA-Z]+$" title="Please enter letters only" required></p>
-          <p>Gender: <input type="radio" name="gender" value="male" checked> Male <input type="radio" name="gender" value="female"> Female</p>
-          <p><input type="email" name="email" placeholder="email address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please enter valid email address" required>
-          <p><input type="tel" name="contact" placeholder="contact no" maxlength="10" pattern="[1-9][0-9]{9}" title="Please enter valid 10 digit contact no" required>
-          <p><input type="password" name="password1" id ="password1" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-          <p><input type="password" name="password2" id ="password2"placeholder="re enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title ="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-          <p><span id="message"></span>
-          <p><input type="submit" value="CREATE" id="submit" disabled="disabled">
-          <p class="message">Already registered? <a href="index.php">Sign in here</a></p>
-       </form>
+          <fieldset>
+            <legend>Contact Information</legend>
+            <p>
+              <label for="fname">First name:</label>
+              <input type="text" name="fname" placeholder="first name"pattern="^[a-zA-Z]+$" title="Please enter letters only" required>
+            </p>
+            <p>
+              <label for="lname>Last name:</label>
+              <input type="text" name="lname" placeholder="last name" pattern="^[a-zA-Z]+$" title="Please enter letters only" required>
+            </p>
+            <p>
+              <label for="gender">Gender:</label>
+              <input type="radio" name="gender" value="male" checked> Male <input type="radio" name="gender" value="female">
+            </p>
+            <p>
+              <label for="email">Email address:</label>
+              <input type="email" name="email" placeholder="email address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please enter valid email address" required>
+            </p>
+            <p>
+              <label for="contact">Contact number:</label>
+              <input type="tel" name="contact" placeholder="contact no" maxlength="10" pattern="[1-9][0-9]{9}" title="Please enter valid 10 digit contact nunder" required>
+            </p>
+            <p>
+              <label for="password1">Password:</label>
+              <input type="password" name="password1" id ="password1" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+            </p>
+            <p>
+              <label for="password2">Confirm password:</label>
+              <input type="password" name="password2" id ="password2"placeholder="re enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title ="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+            </p>
+            <span id="message"></span>
+            <p>
+              <input type="submit" value="CREATE" id="submit" disabled="disabled">
+            </p>
+            <p class="message">Already registered? <a href="index.php">Sign in here</a></p>
+          </fieldset>
+        </form>
       </div>
     </div>
   </body>
