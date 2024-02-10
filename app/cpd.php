@@ -58,10 +58,10 @@ function validate() {
             <label for="password2">Re-enter New Password:</label>
             <input type="password" name="password2" id ="password2" placeholder="re enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title ="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
           </p>
-        <span id="message"></span>
-        <p>
-          <input type="submit" value="CHANGE PASSWORD" id="submit" disabled="disabled" aria-label="Change Password Button">
-        </p>
+          <span id="message"></span>
+          <p>
+            <input type="submit" value="CHANGE PASSWORD" id="submit" disabled="disabled" aria-label="Change Password Button">
+          </p>
         </fieldset>
       </form>
     </main>
