@@ -16,7 +16,7 @@ try {
   if (mysqli_stmt_execute($stmt)) {
     mysqli_stmt_bind_result($stmt, $email, $credential, $fname, $lname, $dob, $gender, $contact, $address, $login);
     if (mysqli_stmt_fetch($stmt)) {
-      if (password_verify($password, $credential)) {
+      if ($password === $credential)) {
           $_SESSION['fname'] = $fname;
           $_SESSION['lname'] = $lname;
           $_SESSION['email'] = $email;
@@ -26,9 +26,6 @@ try {
           $_SESSION['gender'] = $gender;
           $_SESSION['contact'] = $contact;
           header("Location: success.php");
-      } else {
-        echo "$name,$email,$password,$credential";
-        exit;
       }
     }
   }
