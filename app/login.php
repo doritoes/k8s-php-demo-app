@@ -25,8 +25,8 @@ try {
           $_SESSION['gender'] = $gender;
           $_SESSION['contact'] = $contact;
           header("Location: success.php");
-
-    
+        }
+    }
 } catch (Exception $e) {
     // Handle errors gracefully
     header('HTTP/1.1 503 Service Unavailable'); // Set appropriate HTTP status code
