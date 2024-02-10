@@ -15,15 +15,8 @@ try {
   if (mysqli_stmt_execute($stmt)) {
     mysqli_stmt_bind_result($stmt, $email, $credential, $fname, $lname, $dob, $gender, $contact, $address, $login);
     if (mysqli_stmt_fetch($stmt)) {
-      if ($password == $credential) {
-        echo "set point $name,$email,$password,$credential";
-        echo "types " . gettype($password) . "," . gettype($credential);
-        if ($password === $credential) {
-          echo "GOOD";
-        } else {
-          echo "BAD";
-        }
-        exit;
+      if ($password === $credential) {
+          $_SESSION['status'] = "Active";
           $_SESSION['fname'] = $fname;
           $_SESSION['lname'] = $lname;
           $_SESSION['email'] = $email;
@@ -32,7 +25,6 @@ try {
           $_SESSION['dob'] = $dob;
           $_SESSION['gender'] = $gender;
           $_SESSION['contact'] = $contact;
-          $_SESSION['status'] = "Active";
           header("Location: success.php");
       }
     } else {
