@@ -1,5 +1,3 @@
-<!DOCTYPE HTML>
-<html lang="en">
 <?php
 $configs = include('conf/config.php');
 session_start();
@@ -7,6 +5,8 @@ $fname = htmlspecialchars($_SESSION['fname']);
 $lname = htmlspecialchars($_SESSION['lname']);
 $login = htmlspecialchars($_SESSION['login']);
 ?>
+<!DOCTYPE HTML>
+<html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title><?php echo $configs['appname']; ?></title>
@@ -14,17 +14,19 @@ $login = htmlspecialchars($_SESSION['login']);
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
     <script type="text/javascript">
 $(document).ready(function() {
-  $("#password2").keyup(validate);
+$("#password2").keyup(validate);
 });
 function validate() {
-  var newPassword = $("#password1").val();
-  var confirmedPassword = $("#password2").val();
-  var passwordMismatch = newPassword !== confirmed Password;
-  $("#message").html(passwordMismatch
-    ? '<font color="red"><b>Passwords don\'t match</b></font>'
-    : '<font color="green"><b>Passwords match</b></font>');
-  $("input[type=submit]").prop("disabled", passwordMismatch);
-}
+  var password1 = $("#password1").val();
+  var password2 = $("#password2").val();
+  if(password1 == password2 && password1!=null && password2!=null) {
+    $("#message").html("<font color=\"green\"><b>Passwords Match</b></font>");
+    $("input[type=submit]").prop("disabled", false);      
+  } else {
+    $("#message").html("<font color=\"red\"><b>Check Passwords</b></font>");
+    $("input[type=submit]").prop("disabled", true); 
+    }
+  }
     </script>
   </head>
   <body>
@@ -56,7 +58,7 @@ function validate() {
             <label for="password2">Re-enter New Password:</label>
             <input type="password" name="password2" id ="password2" placeholder="re enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title ="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
           </p>
-        <span id="message"> &nbsp;</span>
+        <span id="message"></span>
         <p>
           <input type="submit" value="CHANGE PASSWORD" id="submit" disabled="disabled" aria-label="Change Password Button">
         </p>
