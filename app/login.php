@@ -15,10 +15,12 @@ try {
   if (mysqli_stmt_execute($stmt)) {
     mysqli_stmt_bind_result($stmt, $email, $credential, $fname, $lname, $dob, $gender, $contact, $address, $login);
     if (mysqli_stmt_fetch($stmt)) {
-      echo "breakpoint $name,$email,$password,$credential";
-      exit;
+      if ($password == $credential) {
+          echo "matchpoint $name,$email,$password,$credential";
+          exit;
+      }
       if ($password === $credential) {
-        echo "matchpoint $name,$email,$password,$credential";
+        echo "set point $name,$email,$password,$credential";
         exit;
           $_SESSION['fname'] = $fname;
           $_SESSION['lname'] = $lname;
