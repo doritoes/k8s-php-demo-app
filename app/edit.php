@@ -1,13 +1,17 @@
 <?php
 $configs = include('conf/config.php');
 session_start();
+if (!isset($_SESSION['status']) || $_SESSION['status'] !== "Active") {
+    // Session is not active or invalid
+    header("Location: loggedout.php"); // Redirect to an error page
+    exit(); // Stop further execution of the current page
+}
 // Connect to the database
 try {
     $connection = mysqli_connect($configs['host'], $configs['username'], $configs['password'], $configs['dbname']);
     if (!$connection) {
         throw new Exception('Database connection failed: ' . mysqli_connect_error());
     }
-    // Proceed with database operations
 } catch (Exception $e) {
     // Handle errors gracefully
     header('HTTP/1.1 503 Service Unavailable'); // Set appropriate HTTP status code
@@ -17,14 +21,14 @@ try {
     exit; // Stop further execution
 }
 // Retrieve and escape form data
-$fn = mysqli_real_escape_string($connection, $_POST['fname'] ?? ''); // Use ?? for default values
-$ln = mysqli_real_escape_string($connection, $_POST['lname'] ?? '');
-$em = mysqli_real_escape_string($connection, $_POST['email'] ?? '');
-$ad = mysqli_real_escape_string($connection, $_POST['address'] ?? '');
+$fn = mysqli_real_escape_string($connection, $_SESSION['fname'] ?? ''); // Use ?? for default values
+$ln = mysqli_real_escape_string($connection, $_SESSION['lname'] ?? '');
+$em = mysqli_real_escape_string($connection, $_SESSION['email'] ?? '');
+$ad = mysqli_real_escape_string($connection, $_SESSION['address'] ?? '');
 $dob = ''; // Initialize dob
 
 // Handle date conversion and escaping (assuming proper user input validation for date format)
-if (!empty($_POST['dob'])) {
+if (!empty($_SESSION['dob'])) {
     $date1 = strtr($_POST['dob'], '/', '-');
     $dob = date('Y-m-d', strtotime($date1));
 }
@@ -72,6 +76,7 @@ $_SESSION['contact'] = $con;
 if ($_SESSION['status'] != "Active") {
   session_destroy();
   header("Location: index.php");
+  exit;
 }
 
 header("Location: success.php");
