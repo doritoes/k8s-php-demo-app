@@ -1,8 +1,6 @@
 <?php
 $configs = include('conf/config.php');
 session_start();
-echo "DERP";
-exit;
 if (!isset($_SESSION['status']) || $_SESSION['status'] !== "Active") {
     // Session is not active or invalid
     header("Location: loggedout.php"); // Redirect to an error page
@@ -43,11 +41,6 @@ $contact= htmlspecialchars($_SESSION['contact']);
         <button onclick="location.href='cpd.php'">CHANGE PASSWORD</button>
         <button onclick="location.href='remove.php'">REMOVE ACCOUNT</button>
       </div>
-  </main>
-<?php
-  if($_SESSION['status']!="Active") {
-    session_destroy();
-    header("Location: index.php");
-} ?>
+    </main>
   </body>
 </html>
