@@ -43,7 +43,7 @@ function validate() {
             </p>
             <p>
               <label for="gender">Gender:</label>
-              <input type="radio" name="gender" value="male" checked> Male <input type="radio" name="gender" value="female">
+              <input type="radio" name="gender" value="male" checked> Male <input type="radio" name="gender" value="female"> Female
             </p>
             <p>
               <label for="email">Email address:</label>
