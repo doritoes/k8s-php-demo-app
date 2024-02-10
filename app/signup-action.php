@@ -6,7 +6,6 @@ try {
     if (!$connection) {
         throw new Exception('Database connection failed: ' . mysqli_connect_error());
     }
-    // Proceed with database operations
 } catch (Exception $e) {
     // Handle errors gracefully
     header('HTTP/1.1 503 Service Unavailable'); // Set appropriate HTTP status code
@@ -34,7 +33,7 @@ if (mysqli_stmt_fetch($stmt)) {
 }
 
 $stmt = mysqli_prepare($connection, "INSERT INTO app_user (fname, lname, email, password, gender, contact) VALUES (?, ?, ?, ?, ?, ?)");
-mysqli_stmt_bind_param($stmt, "ssssss", $fname, $lname, $email, $password, $gen, $con);
+mysqli_stmt_bind_param($stmt, "ssssss", $fname, $lname, $email, $pwd1, $gen, $con);
 mysqli_stmt_execute($stmt);
 
 if (!mysqli_stmt_affected_rows($stmt)) {
