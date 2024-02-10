@@ -26,6 +26,8 @@ mysqli_stmt_bind_param($stmt, "s", $name);
 
 if (mysqli_stmt_execute($stmt)) {
     mysqli_stmt_bind_result($stmt, $email, $credential, $fname, $lname, $dob, $gender, $contact, $address, $login);
+    echo "$name,$password,$credential";
+    exit;
     if (mysqli_stmt_fetch($stmt) && $password === $credential) {
       $_SESSION['fname'] = $fname;
       $_SESSION['lname'] = $lname;
