@@ -1,7 +1,6 @@
 <?php
 $configs = include('conf/config.php');
 session_start();
-$_SESSION['status'] = "Active";
 // Connect to the database
 try {
   $connection = mysqli_connect($configs['host'], $configs['username'], $configs['password'], $configs['dbname']);
@@ -25,6 +24,7 @@ try {
           $_SESSION['dob'] = $dob;
           $_SESSION['gender'] = $gender;
           $_SESSION['contact'] = $contact;
+          $_SESSION['status'] = "Active";
           header("Location: success.php");
       }
     }
