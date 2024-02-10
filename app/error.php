@@ -1,8 +1,9 @@
-<!DOCTYPE HTML>
-<html lang="en">
 <?php
 $configs = include('conf/config.php');
+session_start();
 ?>
+<!DOCTYPE HTML>
+<html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title><?php echo $configs['appname']; ?></title>
@@ -13,9 +14,20 @@ $configs = include('conf/config.php');
       <div class="form">
         <p class="errormessage">Invalid User Name or Password</p>
         <form action="login.php" method="post">
-          <input type="text" placeholder="username"name="uname" required/>
-          <input type="password" placeholder="password" name="password" required/>
-          <input type="submit" value="login"/>
+          <fieldset>
+            <legend>Log In</legend>
+            <p>
+              <label for="uname">Username:</label>
+              <input type="text" placeholder="username" name="uname" required>
+            </p>
+            <p>
+              <label for="password">Password:</label>
+              <input type="password" placeholder="password" name="password" required>
+            </p>
+            <p>
+              <input type="submit" value="login">
+            </p>
+          </fieldset>
           <p class="message">Not registered? <a href="signup.php">Create an account</a></p>
         </form>
       </div>
