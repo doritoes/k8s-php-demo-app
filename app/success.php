@@ -38,7 +38,7 @@ $contact= htmlspecialchars($_SESSION['contact']);
       <p>Email: <?php echo $email;?></p>
       <p>Contact Number: <?php echo $contact;?></p>
       <p>Address: <?php echo $address;?></p>
-      <p>Date of Birth: <?php $newDate = date("d/m/Y", strtotime($dob));echo $newDate;?></p>
+      <p>Date of Birth: <?php $newDate = date("m/d/Y", strtotime($dob)); echo $newDate;?></p>
       <p>You are: <?php echo $gender;?></p>
       <div class="button-container">
         <button onclick="location.href='update.php'">UPDATE DETAILS</button>
