@@ -7,7 +7,6 @@ try {
   if (!$connection) {
     throw new Exception('Database connection failed: ' . mysqli_connect_error());
   }
-  // Retrieve and sanitize user input
   $name = mysqli_real_escape_string($connection, $_POST['uname'] ?? '');
   $password = mysqli_real_escape_string($connection, $_POST['password'] ?? '');
   $stmt = mysqli_prepare($connection, "SELECT email, password, fname, lname, dob, gender, contact, address, login FROM app_user WHERE email = ?");
@@ -26,13 +25,9 @@ try {
         $_SESSION['gender'] = $gender;
         $_SESSION['contact'] = $contact;
         header("Location: success.php");
+        exit;
       }
-    } else {
-      echo "failed statement";
-      exit;
     }
-  } else {
-    echo "failed to execute";
   }
 } catch (Exception $e) {
     // Handle errors gracefully
