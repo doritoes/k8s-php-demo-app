@@ -25,8 +25,6 @@ try {
         $_SESSION['dob'] = $dob;
         $_SESSION['gender'] = $gender;
         $_SESSION['contact'] = $contact;
-        echo "SUCCESS my friend";
-        exit;
         header("Location: success.php");
       }
     } else {
