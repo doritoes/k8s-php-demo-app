@@ -2,6 +2,7 @@
 <html lang="en">
 <?php
 $configs = include('conf/config.php');
+session_start();
 ?>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
