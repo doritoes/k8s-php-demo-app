@@ -1,8 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
 $configs = include('conf/config.php');
 session_start();
+if (!isset($_SESSION['status']) || $_SESSION['status'] !== "Active") {
+    // Session is not active or invalid
+    header("Location: index.php"); // Redirect to an error page
+    exit(); // Stop further execution of the current page
+}
 $fname = htmlspecialchars($_SESSION['fname']);
 $lname = htmlspecialchars($_SESSION['lname']);
 $email = htmlspecialchars($_SESSION['email']);
@@ -12,6 +15,8 @@ $login = htmlspecialchars($_SESSION['login']);
 $gender= htmlspecialchars($_SESSION['gender']);
 $contact= htmlspecialchars($_SESSION['contact']);
 ?>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title><?php echo $configs['appname']; ?></title>
