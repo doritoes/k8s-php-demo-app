@@ -4,20 +4,21 @@ session_start();
 $_SESSION['status'] = "Active";
 // Connect to the database
 try {
-    $connection = mysqli_connect($configs['host'], $configs['username'], $configs['password'], $configs['dbname']);
-    if (!$connection) {
-        throw new Exception('Database connection failed: ' . mysqli_connect_error());
-    }
-    // Retrieve and sanitize user input
-    $name = mysqli_real_escape_string($connection, $_POST['uname'] ?? '');
-    $password = mysqli_real_escape_string($connection, $_POST['password'] ?? '');
-    $stmt = mysqli_prepare($connection, "SELECT email, password, fname, lname, dob, gender, contact, address, login FROM app_user WHERE email = ?");
-    mysqli_stmt_bind_param($stmt, "s", $name);
-    if (mysqli_stmt_execute($stmt)) {
-        mysqli_stmt_bind_result($stmt, $email, $credential, $fname, $lname, $dob, $gender, $contact, $address, $login);
-        echo "$name,$email,$password,$credential";
-        exit;
-        if (mysqli_stmt_fetch($stmt) && password_verify($password, $credential)) {
+  $connection = mysqli_connect($configs['host'], $configs['username'], $configs['password'], $configs['dbname']);
+  if (!$connection) {
+    throw new Exception('Database connection failed: ' . mysqli_connect_error());
+  }
+  // Retrieve and sanitize user input
+  $name = mysqli_real_escape_string($connection, $_POST['uname'] ?? '');
+  $password = mysqli_real_escape_string($connection, $_POST['password'] ?? '');
+  $stmt = mysqli_prepare($connection, "SELECT email, password, fname, lname, dob, gender, contact, address, login FROM app_user WHERE email = ?");
+  mysqli_stmt_bind_param($stmt, "s", $name);
+  if (mysqli_stmt_execute($stmt)) {
+    mysqli_stmt_bind_result($stmt, $email, $credential, $fname, $lname, $dob, $gender, $contact, $address, $login);
+    if (mysqli_stmt_fetch($stmt)) {
+      echo "$name,$email,$password,$credential";
+      exit;
+      if (password_verify($password, $credential)) {
           $_SESSION['fname'] = $fname;
           $_SESSION['lname'] = $lname;
           $_SESSION['email'] = $email;
@@ -27,8 +28,9 @@ try {
           $_SESSION['gender'] = $gender;
           $_SESSION['contact'] = $contact;
           header("Location: success.php");
-        }
+      }
     }
+  }
 } catch (Exception $e) {
     // Handle errors gracefully
     header('HTTP/1.1 503 Service Unavailable'); // Set appropriate HTTP status code
