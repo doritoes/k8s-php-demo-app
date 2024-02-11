@@ -12,7 +12,7 @@ session_start();
   <body>
     <div class="login-page">
       <div class="form">
-        <form action="login.php" method="post">
+        <form action="login-action.php" method="post">
           <fieldset>
             <legend>Log In</legend>
             <p>
