@@ -25,9 +25,9 @@ $npwd = mysqli_real_escape_string($connection, $_POST['password1'] ?? '');
 $stmt = mysqli_prepare($connection, "SELECT password FROM app_user WHERE email = ?");
 mysqli_stmt_bind_param($stmt, "s", $a);
 if (mysqli_stmt_execute($stmt)) {
-  mysqli_stmt_bind_result($stmt, $credential);
+  mysqli_stmt_bind_result($stmt, $hashed_password);
   if (mysqli_stmt_fetch($stmt)) {
-    if ($pwd === $credential) {
+    if (password_verify($pwd, $hashed_password)) {
       // Prepared statement for password update
       mysqli_stmt_close($stmt);
       $stmt = mysqli_prepare($connection, "UPDATE app_user SET password = ? WHERE email = ?");
