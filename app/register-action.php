@@ -25,7 +25,7 @@ $gen = mysqli_real_escape_string($connection, $_POST['gender'] ?? '');
 $con = mysqli_real_escape_string($connection, $_POST['contact'] ?? '');
 
 // Sanity checks
-if (!$email || !$pwd1 || !$pwd2 || $pwd1 !== $fwd2) {
+if (!$email || !$pwd1 || !$pwd2 || $pwd1 !== $pwd2) {
     header("Location: register.php");
     exit; // Not submitted correctly
 }
