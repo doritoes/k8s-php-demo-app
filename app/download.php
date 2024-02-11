@@ -6,6 +6,13 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== "Active") {
   header("Location: login-again.php"); // Redirect to an error page
   exit(); // Stop further execution of the current page
 }
+
+if (!isset($_GET['file']) or !$_GET['file']) {
+  // Improper call to download.php
+  header("Location: index.php"); // Redirect to an error page
+  exit(); // Stop further execution of the current page
+}
+
 // Specify the path to the data directory
 $data_dir = __DIR__ . '/data/'; // Adjust the path if needed
 
