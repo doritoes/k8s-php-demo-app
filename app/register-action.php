@@ -28,7 +28,7 @@ $stmt = mysqli_prepare($connection, "SELECT email FROM app_user WHERE email = ?"
 mysqli_stmt_bind_param($stmt, "s", $email);
 mysqli_stmt_execute($stmt);
 if (mysqli_stmt_fetch($stmt)) {
-    header("Location: index.php");
+    header("Location: login.php");
     exit; // user exists, prevent further execution
 }
 
