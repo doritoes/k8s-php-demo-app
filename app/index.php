@@ -47,10 +47,10 @@ $contact = htmlspecialchars($_SESSION['contact']);
               if ($entry !== '.' && $entry !== '..') {
                 // Get the full path to the file
                 $file_path = $data_dir . $entry;
-                // Check if it's a file (not a directory)
-                if (is_file($file_path)) {
+                // Check if it's a file (not a directory) and does not start with a dot
+                if (is_file($file_path) && strpos($entry, '.') !==0) {
                   // Display the file name with a link to download it
-                  echo "<a href='index.php?file=$entry'>$entry</a><br>";
+                  echo "<a href='download.php?file=$entry'>$entry</a><br>";
                 }
               }
             }
