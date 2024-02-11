@@ -14,7 +14,7 @@ if (!isset($_GET['file']) or !$_GET['file']) {
 }
 
 // Specify the path to the data directory
-$data_dir = __DIR__ . '/data/'; // Adjust the path if needed
+$data_dir = '/var/www/data/';
 
 // Sanitize the requested file name
 $requested_file = filter_input(INPUT_GET, 'file', FILTER_SANITIZE_STRING);
