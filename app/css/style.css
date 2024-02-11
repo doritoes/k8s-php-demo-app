@@ -14,6 +14,7 @@ main {
   margin-bottom: -10000px;
   float: left;
   width: 100%;
+  margin-top: 12px;
 }
 
 main button {
@@ -33,7 +34,6 @@ header {
   text-align:right;
   font-size: 12px;
   color: #FFFFFF;
-  margin-bottom: 12px;
 }
 
 header strong {
