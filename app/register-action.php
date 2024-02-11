@@ -33,9 +33,7 @@ if (mysqli_stmt_fetch($stmt)) {
 }
 
 $stmt = mysqli_prepare($connection, "INSERT INTO app_user (fname, lname, email, password, gender, contact) VALUES (?, ?, ?, ?, ?, ?)");
-$password_hash = password_hash($pwd1, PASSWORD_DEFAULT);
-echo("$password_hash, length " . strlen($password_hash));
-exit;
+$password_hash = (str) password_hash($pwd1, PASSWORD_DEFAULT);
 mysqli_stmt_bind_param($stmt, "ssssss", $fname, $lname, $email, $password_hash, $gen, $con);
 mysqli_stmt_execute($stmt);
 
