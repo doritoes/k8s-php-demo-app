@@ -10,10 +10,10 @@ $configs = include('conf/config.php');
   </head>
   <body>
     <header>
-      <span class="header">SUCCESS</span>
-      <p>Successfully Registered</p>
+      <strong>SUCCESS</strong>
     </header>
     <main>
+      <p>Successfully Registered</p>
       <p><button onclick="location.href='index.php'">CLICK HERE TO LOGIN</button></p>
     </main>
   </body>
