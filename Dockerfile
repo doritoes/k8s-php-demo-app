@@ -1,8 +1,8 @@
 FROM trafex/php-nginx
 MAINTAINER doritoes <seth.holcomb@gmail.com>
-RUN mkdir -p /var/www/data
+RUN mkdir /var/data
 USER nobody
 COPY --chown=nobody app/ /var/www/html/
-COPY --chown=nobody files/ /var/www/data/
+COPY --chown=nobody files/ /var/data/
 # Expose the port nginx is reachable on
 EXPOSE 8080
