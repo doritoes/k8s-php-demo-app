@@ -34,7 +34,7 @@ $contact = htmlspecialchars($_SESSION['contact']);
       <div class="container">
         <?php
           // Specify the path to the data directory
-          $data_dir = __DIR__ . '/data/';
+          $data_dir = '/var/www/data/';
           // Open the directory for reading
           $dir_handle = opendir($data_dir);
           // Check if the directory was opened successfully
