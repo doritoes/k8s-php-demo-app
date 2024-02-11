@@ -13,7 +13,7 @@ session_start();
     <div class="login-page">
       <div class="form">
         <p class="error">Invalid User Name or Password</p>
-        <form action="login.php" method="post">
+        <form action="login-action.php" method="post">
           <fieldset>
             <legend>Log In</legend>
             <p>
