@@ -12,7 +12,7 @@ session_start();
   <body>
     <div class="login-page">
       <div class="form">
-        <p class="errormessage">Logged Out</p>
+        <p class="error">Logged Out</p>
         <form action="login.php" method="post">
           <fieldset>
             <legend>Log In</legend>
