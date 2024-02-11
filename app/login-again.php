@@ -13,7 +13,7 @@ session_start();
     <div class="login-page">
       <div class="form">
         <p class="error">Logged Out</p>
-        <form action="login.php" method="post">
+        <form action="login-action.php" method="post">
           <fieldset>
             <legend>Log In</legend>
             <p>
@@ -28,7 +28,7 @@ session_start();
               <input type="submit" value="login">
             </p>
           </fieldset>
-          <p class="message">Not registered? <a href="signup.php">Create an account</a></p>
+          <p class="message">Not registered? <a href="register.php">Create an account</a></p>
         </form>
       </div>
     </div>
