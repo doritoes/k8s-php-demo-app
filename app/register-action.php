@@ -24,6 +24,11 @@ $pwd2 = mysqli_real_escape_string($connection, $_POST['password2'] ?? '');
 $gen = mysqli_real_escape_string($connection, $_POST['gender'] ?? '');
 $con = mysqli_real_escape_string($connection, $_POST['contact'] ?? '');
 
+if (!$email || !$pwd1 || !$pwd2 || $pwd1 !== $fwd2) {
+    header("Location: register.php");
+    exit; // Not submitted correctly
+}
+
 $stmt = mysqli_prepare($connection, "SELECT email FROM app_user WHERE email = ?");
 mysqli_stmt_bind_param($stmt, "s", $email);
 mysqli_stmt_execute($stmt);
