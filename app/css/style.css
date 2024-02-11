@@ -179,6 +179,11 @@ header a {
   font-size: 14px;
 }
 
+.message {
+  color: #FFFFFF;
+  font-size: 14px;
+}
+
 .button-container {
   display: flex;
   justify-content: center;
