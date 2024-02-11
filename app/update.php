@@ -34,38 +34,40 @@ $gender = htmlspecialchars($_SESSION['gender'] ?? '');
       </nav>
     </header>
     <main>
-      <form action="edit.php" method="post">
-        <fieldset>
-          <legend>Edit Account</legend>
-          <p>
-            <label for="fname">First Name:</label>
-            <input type="text" name="fname" placeholder="First Name" pattern="^[a-zA-Z]+$" title="Please enter letters only" value="<?php echo $fname; ?>" required>
-          </p>
-          <p>
-            <label for="lname">Last Name:</label>
-            <input type="text" name="lname" placeholder="Last Name" pattern="^[a-zA-Z]+$" title="Please enter letters only" value="<?php echo $lname; ?>" required>
-          </p>
-        <p>
-          <label for="email">Email:</label>
-          <input type="email" name="email" placeholder="Email address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please enter valid email address" value="<?php echo $email; ?>" disabled>
-        </p>
-        <p>
-          <label for="contact">Contact number:</label>
-          <input type="text" name="contact" placeholder="Contact number" maxlength="10" pattern="[1-9][0-9]{9}" title="Please enter valid 10 digit contact number" value="<?php echo $contact; ?>">
-        </p>
-        <p>
-          <label for="address">Address:</label>
-          <input type="text" name="address" placeholder="address" value="<?php echo $address; ?>">  
-        </p>
-        <p>
-          <label for "dob">Date of birth</label>
-          <input type="date" name="dob" placeholder="Date of birth" value="<?php echo $dob; ?>">
-        </p>
-        <p>
-          <input type="submit" value="UPDATE">  
-        </p>
-        </fieldset>
-    </form>		
+      <div class="form">
+        <form action="edit.php" method="post">
+          <fieldset>
+            <legend>Edit Account</legend>
+            <p>
+              <label for="fname">First Name:</label>
+              <input type="text" name="fname" placeholder="First Name" pattern="^[a-zA-Z]+$" title="Please enter letters only" value="<?php echo $fname; ?>" required>
+            </p>
+            <p>
+              <label for="lname">Last Name:</label>
+              <input type="text" name="lname" placeholder="Last Name" pattern="^[a-zA-Z]+$" title="Please enter letters only" value="<?php echo $lname; ?>" required>
+            </p>
+            <p>
+              <label for="email">Email:</label>
+              <input type="email" name="email" placeholder="Email address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please enter valid email address" value="<?php echo $email; ?>" disabled>
+            </p>
+            <p>
+              <label for="contact">Contact number:</label>
+              <input type="text" name="contact" placeholder="Contact number" maxlength="10" pattern="[1-9][0-9]{9}" title="Please enter valid 10 digit contact number" value="<?php echo $contact; ?>">
+            </p>
+            <p>
+              <label for="address">Address:</label>
+              <input type="text" name="address" placeholder="address" value="<?php echo $address; ?>">  
+            </p>
+            <p>
+              <label for "dob">Date of birth</label>
+              <input type="date" name="dob" placeholder="Date of birth" value="<?php echo $dob; ?>">
+            </p>
+            <p>
+              <input type="submit" value="UPDATE">  
+            </p>
+          </fieldset>
+        </form>
+      </div>
   </main>
   </body>
 </html>
