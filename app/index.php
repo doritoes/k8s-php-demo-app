@@ -24,13 +24,11 @@ $contact = htmlspecialchars($_SESSION['contact']);
   </head>
   <body>
     <header>
-      <div class="body">
-        <span class="welcome"><strong>Welcome</strong> &nbsp<?php echo $fname; echo " " ; echo $lname;?></span>
-        <p><span class="welcome">Last logged in at: <?php echo $login; ?></span></p>
-        <nav>
-          <a href="logout.php">Log Out</a>
-        </nav>
-      </div>
+      <span class="welcome"><strong>Welcome</strong> &nbsp<?php echo $fname; echo " " ; echo $lname;?></span>
+      <p><span class="welcome">Last logged in at: <?php echo $login; ?></span></p>
+      <nav>
+        <a href="logout.php">Log Out</a>
+      </nav>
     </header>
     <main>
       <div class="container">
