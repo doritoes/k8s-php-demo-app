@@ -12,8 +12,8 @@ $email = htmlspecialchars($_SESSION['email']);
 $address = htmlspecialchars($_SESSION['address']);
 $dob = htmlspecialchars($_SESSION['dob']);
 $login = htmlspecialchars($_SESSION['login']);
-$gender= htmlspecialchars($_SESSION['gender']);
-$contact= htmlspecialchars($_SESSION['contact']);
+$gender = htmlspecialchars($_SESSION['gender']);
+$contact = htmlspecialchars($_SESSION['contact']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
