@@ -32,7 +32,7 @@ $login = htmlspecialchars($_SESSION['login']);
             <label for="password">Password:</label>
             <p><input type="password" name="password"/></p>
             <p><input type="submit" value="CONFIRM"/></p>
-            </fieldset>
+          </fieldset>
         </form>
       </div>
     </main>
