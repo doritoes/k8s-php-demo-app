@@ -14,7 +14,7 @@ try {
   if (mysqli_stmt_execute($stmt)) {
     mysqli_stmt_bind_result($stmt, $email, $hashed_password, $fname, $lname, $dob, $gender, $contact, $address, $login);
     if (mysqli_stmt_fetch($stmt)) {
-      if (password_verify($password, $hashed_password) {
+      if (password_verify($password, $hashed_password)) {
         $now = date('Y-m-d H:i:s'); // Get current datetime in YYYY-MM-DD HH:MM:SS format
         $_SESSION['status'] = "Active";
         $_SESSION['fname'] = $fname;
