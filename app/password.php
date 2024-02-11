@@ -24,7 +24,7 @@ $("#password2").keyup(validate);
 function validate() {
   var password1 = $("#password1").val();
   var password2 = $("#password2").val();
-  if(password1 == password2 && password1!=null && password2!=null) {
+  if (password1 == password2 && password1 != null && password2 != null) {
     $("#message").html("<font color=\"green\"><b>Passwords Match</b></font>");
     $("input[type=submit]").prop("disabled", false);      
   } else {
