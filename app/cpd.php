@@ -48,27 +48,29 @@ function validate() {
       </div>
     </header>
     <main>
-      <form action="cup.php" method="post">
-        <fieldset>
-          <legend>Change Password</legend>
-          <p>
-            <label for="password">Current Password:</label>
-            <input type="password" name="password" id="password" placeholder="current password" required>
-          </p>
-          <p>
-            <label for="password1">New Password:</label>
-            <input type="password" name="password1" id ="password1" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-          </p>
-          <p>
-            <label for="password2">Re-enter New Password:</label>
-            <input type="password" name="password2" id ="password2" placeholder="re enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title ="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-          </p>
-          <span id="message"></span>
-          <p>
-            <input type="submit" value="CHANGE PASSWORD" id="submit" disabled="disabled" aria-label="Change Password Button">
-          </p>
-        </fieldset>
-      </form>
+      <div class="form">
+        <form action="cup.php" method="post">
+          <fieldset>
+            <legend>Change Password</legend>
+            <p>
+              <label for="password">Current Password:</label>
+              <input type="password" name="password" id="password" placeholder="current password" required>
+            </p>
+            <p>
+              <label for="password1">New Password:</label>
+              <input type="password" name="password1" id ="password1" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+            </p>
+            <p>
+              <label for="password2">Re-enter New Password:</label>
+              <input type="password" name="password2" id ="password2" placeholder="re enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title ="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+            </p>
+            <span id="message"></span>
+            <p>
+              <input type="submit" value="CHANGE PASSWORD" id="submit" disabled="disabled" aria-label="Change Password Button">
+            </p>
+          </fieldset>
+        </form>
+      </div>
     </main>
   </body>
 </html>
