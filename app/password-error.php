@@ -39,7 +39,7 @@ function validate() {
       <span class="welcome"><strong>Welcome</strong> &nbsp<?php echo $fname; echo " " ; echo $lname ;?></span>
       <span class="welcome"> Last logged in at: <?php echo $login; ?></span>
       <nav>
-        <a href="success.php">Home</a>
+        <a href="index.php">Home</a>
       </nav>
       <nav>
         <a href="logout.php">Log Out</a>
@@ -48,7 +48,7 @@ function validate() {
     <main>
       <span class="error">Please provide the correct password</span>
       <div class="form">
-        <form action="cup.php" method="post">
+        <form action="password-action.php" method="post">
           <fieldset>
             <legend>Change Password</legend>
             <p>
