@@ -20,8 +20,11 @@ try {
 $a = mysqli_real_escape_string($connection, $_SESSION['email'] ?? ''); // Use ?? for default values
 $pwd = mysqli_real_escape_string($connection, $_POST['password'] ?? '');
 $npwd = mysqli_real_escape_string($connection, $_POST['password1'] ?? '');
+if ($pwd === $npwd) {
+    header("Location: password.php");
+    exit; // Attempted to change to same value
+}
 
-// Insecure password handling - convert to using password hashes
 $stmt = mysqli_prepare($connection, "SELECT password FROM app_user WHERE email = ?");
 mysqli_stmt_bind_param($stmt, "s", $a);
 if (mysqli_stmt_execute($stmt)) {
