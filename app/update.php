@@ -35,7 +35,7 @@ $gender = htmlspecialchars($_SESSION['gender'] ?? '');
     </header>
     <main>
       <div class="form">
-        <form action="edit.php" method="post">
+        <form action="update-action.php" method="post">
           <fieldset>
             <legend>Edit Account</legend>
             <p>
