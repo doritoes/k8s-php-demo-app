@@ -31,11 +31,11 @@ $contact= htmlspecialchars($_SESSION['contact']);
           <a href="logout.php">Log Out</a>
         </nav>
       </div>
+    </header>
+    <main>
       <div class="container">
         <a>Content goes here</a>
       </div>
-    </header>
-    <main>
       <p>First Name: <?php echo $fname;?></p>
       <p>Last Name: <?php echo $lname;?></p>
       <p>Email: <?php echo $email;?></p>
