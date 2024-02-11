@@ -24,7 +24,7 @@ $("#password2").keyup(validate);
 function validate() {
   var password1 = $("#password1").val();
   var password2 = $("#password2").val();
-  if(password1 == password2 && password1!=null && password2!=null) {
+  if (password1 == password2 && password1 != null && password2 != null) {
     $("#message").html("<font color=\"green\"><b>Passwords Match</b></font>");
     $("input[type=submit]").prop("disabled", false);      
   } else {
@@ -49,27 +49,29 @@ function validate() {
     </header>
     <main>
       <span class="error">Please provide the correct password</span>
-      <form action="cup.php" method="post">
-        <fieldset>
-          <legend>Change Password</legend>
-          <p>
-            <label for="password">Current Password:</label>
-            <input type="password" name="password" id="password" placeholder="current password" required>
-          </p>
-          <p>
-            <label for="password1">New Password:</label>
-            <input type="password" name="password1" id ="password1" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-          </p>
-          <p>
-            <label for="password2">Re-enter New Password:</label>
-            <input type="password" name="password2" id ="password2" placeholder="re enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title ="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-          </p>
-          <span id="message"></span>
-          <p>
-            <input type="submit" value="CHANGE PASSWORD" id="submit" disabled="disabled" aria-label="Change Password Button">
-          </p>
-        </fieldset>
-      </form>		
+      <div class="form">
+        <form action="cup.php" method="post">
+          <fieldset>
+            <legend>Change Password</legend>
+            <p>
+              <label for="password">Current Password:</label>
+              <input type="password" name="password" id="password" placeholder="current password" required>
+            </p>
+            <p>
+              <label for="password1">New Password:</label>
+              <input type="password" name="password1" id ="password1" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+            </p>
+            <p>
+              <label for="password2">Re-enter New Password:</label>
+              <input type="password" name="password2" id ="password2" placeholder="re enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title ="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+            </p>
+            <span id="message"></span>
+            <p>
+              <input type="submit" value="CHANGE PASSWORD" id="submit" disabled="disabled" aria-label="Change Password Button">
+            </p>
+          </fieldset>
+        </form>
+      </div>
     </main>
   </body>
 </html>
