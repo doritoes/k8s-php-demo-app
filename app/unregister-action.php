@@ -17,8 +17,8 @@ try {
   $stmt = mysqli_prepare($connection, "SELECT password FROM app_user WHERE email = ?");
   mysqli_stmt_bind_param($stmt, "s", $a);
   mysqli_stmt_execute($stmt);
-  mysqli_stmt_bind_result($stmt, $credential);
-  if (mysqli_stmt_fetch($stmt) && $pwd === $credential) {
+  mysqli_stmt_bind_result($stmt, $hashed_password);
+  if (mysqli_stmt_fetch($stmt) && password_verify($pwd, $hashed_password)) {
     // delete user
     mysqli_stmt_close($stmt);
     $stmt = mysqli_prepare($connection, "DELETE FROM app_user WHERE email = ?");
