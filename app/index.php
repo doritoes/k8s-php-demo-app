@@ -1,8 +1,21 @@
 <?php
 $configs = include('conf/config.php');
 session_start();
+if (!isset($_SESSION['status']) || $_SESSION['status'] !== "Active") {
+  // Session is not active or invalid
+  header("Location: loggedout.php"); // Redirect to an error page
+  exit(); // Stop further execution of the current page
+}
+$fname = htmlspecialchars($_SESSION['fname']);
+$lname = htmlspecialchars($_SESSION['lname']);
+$email = htmlspecialchars($_SESSION['email']);
+$address = htmlspecialchars($_SESSION['address']);
+$dob = htmlspecialchars($_SESSION['dob']);
+$login = htmlspecialchars($_SESSION['login']);
+$gender= htmlspecialchars($_SESSION['gender']);
+$contact= htmlspecialchars($_SESSION['contact']);
 ?>
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -10,26 +23,31 @@ session_start();
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <div class="login-page">
-      <div class="form">
-        <form action="login.php" method="post">
-          <fieldset>
-            <legend>Log In</legend>
-            <p>
-              <label for="uname">Username:</label>
-              <input type="text" placeholder="username" name="uname" required>
-            </p>
-            <p>
-              <label for="password">Password:</label>
-              <input type="password" placeholder="password" name="password" required>
-            </p>
-            <p>
-              <input type="submit" value="login">
-            </p>
-          </fieldset>
-          <p class="message">Not registered? <a href="signup.php">Create an account</a></p>
-        </form>
+    <header>
+      <div class="body">
+        <span class="welcome"><strong>Welcome</strong> &nbsp<?php echo $fname; echo " " ; echo $lname;?></span>
+        <p><span class="welcome">Last logged in at: <?php echo $login; ?></span></p>
+        <nav>
+          <a href="logout.php">Log Out</a>
+        </nav>
       </div>
-    </div>
+    </header>
+    <main>
+      <div class="container">
+        <a>Content goes here</a>
+      </div>
+      <p>First Name: <?php echo $fname;?></p>
+      <p>Last Name: <?php echo $lname;?></p>
+      <p>Email: <?php echo $email;?></p>
+      <p>Contact Number: <?php echo $contact;?></p>
+      <p>Address: <?php echo $address;?></p>
+      <p>Date of Birth: <?php $newDate = date("m/d/Y", strtotime($dob)); echo $newDate;?></p>
+      <p>You are: <?php echo $gender;?></p>
+      <div class="button-container">
+        <button onclick="location.href='update.php'">UPDATE DETAILS</button>
+        <button onclick="location.href='cpd.php'">CHANGE PASSWORD</button>
+        <button onclick="location.href='remove.php'">REMOVE ACCOUNT</button>
+      </div>
+    </main>
   </body>
 </html>
