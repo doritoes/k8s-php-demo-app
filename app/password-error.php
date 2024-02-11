@@ -46,7 +46,7 @@ function validate() {
       </nav>
     </header>
     <main>
-      <span class="error">Please provide the correct password</span>
+      <div class="error">Please provide the correct password</div>
       <div class="form">
         <form action="password-action.php" method="post">
           <fieldset>
