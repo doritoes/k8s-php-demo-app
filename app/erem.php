@@ -25,13 +25,16 @@ $login = htmlspecialchars($_SESSION['login']);
     <//header>
     <main>
       <span class="error">Please give correct password</span>
-      <form action="rem.php" method="post">
-        <fieldset>
-          <legend>Confirm Password</legend>
-          <label for="password">Password:</label>
-          <p><input type="password" name="password"/></p>
-          <p><input type="submit" value="CONFIRM"/></p>
-      </form>		
+      <div class="form">
+        <form action="rem.php" method="post">
+          <fieldset>
+            <legend>Confirm Password</legend>
+            <label for="password">Password:</label>
+            <p><input type="password" name="password"/></p>
+            <p><input type="submit" value="CONFIRM"/></p>
+            </fieldset>
+        </form>
+      </div>
     </main>
   </body>
 </html>
