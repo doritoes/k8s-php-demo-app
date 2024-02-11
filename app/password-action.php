@@ -30,7 +30,7 @@ mysqli_stmt_bind_param($stmt, "s", $a);
 if (mysqli_stmt_execute($stmt)) {
   mysqli_stmt_bind_result($stmt, $hashed_password);
   if (mysqli_stmt_fetch($stmt)) {
-    if (password_verify($pwd, $hashed_password)) 
+    if (password_verify($pwd, $hashed_password)) {
       $new_password_hash = password_hash($npwd, PASSWORD_DEFAULT);
       // Prepared statement for password update
       mysqli_stmt_close($stmt);
