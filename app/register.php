@@ -51,7 +51,7 @@ function validate() {
             </p>
             <p>
               <label for="contact">Contact number:</label>
-              <input type="tel" name="contact" placeholder="contact no" maxlength="10" pattern="[1-9][0-9]{9}" title="Please enter valid 10 digit contact nunder" required>
+              <input type="tel" name="contact" placeholder="contact number" maxlength="10" pattern="[1-9][0-9]{9}" title="Please enter valid 10 digit contact nunder" required>
             </p>
             <p>
               <label for="password1">Password:</label>
