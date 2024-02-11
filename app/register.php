@@ -30,7 +30,7 @@ function validate() {
     <div class="login-page" id="check">
       <div class="form">
         New User ?
-        <form action="signup-action.php" method="post">
+        <form action="register-action.php" method="post">
           <fieldset>
             <legend>Contact Information</legend>
             <p>
