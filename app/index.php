@@ -3,7 +3,7 @@ $configs = include('conf/config.php');
 session_start();
 if (!isset($_SESSION['status']) || $_SESSION['status'] !== "Active") {
   // Session is not active or invalid
-  header("Location: loggedout.php"); // Redirect to an error page
+  header("Location: login.php"); // Redirect to an error page
   exit(); // Stop further execution of the current page
 }
 $fname = htmlspecialchars($_SESSION['fname']);
