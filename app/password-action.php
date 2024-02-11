@@ -37,7 +37,7 @@ if (mysqli_stmt_execute($stmt)) {
       $stmt = mysqli_prepare($connection, "UPDATE app_user SET password = ? WHERE email = ?");
       mysqli_stmt_bind_param($stmt, "ss", $new_password_hash, $a);
       mysqli_stmt_execute($stmt);
-      header("Location: index.php");
+      header("Location: login-again.php");
       session_destroy();
       mysqli_stmt_close($stmt);
       mysqli_close($connection);
