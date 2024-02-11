@@ -34,7 +34,32 @@ $contact= htmlspecialchars($_SESSION['contact']);
     </header>
     <main>
       <div class="container">
-        <a>Content goes here</a>
+        <?php
+          // Specify the path to the data directory
+          $data_dir = __DIR__ . '/data/';
+          // Open the directory for reading
+          $dir_handle = opendir($data_dir);
+          // Check if the directory was opened successfully
+          if ($dir_handle) {
+            // Loop through each entry in the directory
+            while (false !== ($entry = readdir($dir_handle))) {
+              // Skip hidden files and the current/parent directory references
+              if ($entry !== '.' && $entry !== '..') {
+                // Get the full path to the file
+                $file_path = $data_dir . $entry;
+                // Check if it's a file (not a directory)
+                if (is_file($file_path)) {
+                  // Display the file name with a link to download it
+                  echo "<a href='index.php?file=$entry'>$entry</a><br>";
+                }
+              }
+            }
+            // Close the directory handle
+            closedir($dir_handle);
+          } else {
+            echo "Error opening directory.";
+          }
+    ?>
       </div>
       <p>First Name: <?php echo $fname;?></p>
       <p>Last Name: <?php echo $lname;?></p>
