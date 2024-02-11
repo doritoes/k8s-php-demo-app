@@ -45,8 +45,8 @@ $contact= htmlspecialchars($_SESSION['contact']);
       <p>You are: <?php echo $gender;?></p>
       <div class="button-container">
         <button onclick="location.href='update.php'">UPDATE DETAILS</button>
-        <button onclick="location.href='cpd.php'">CHANGE PASSWORD</button>
-        <button onclick="location.href='remove.php'">REMOVE ACCOUNT</button>
+        <button onclick="location.href='password.php'">CHANGE PASSWORD</button>
+        <button onclick="location.href='unregister.php'">REMOVE ACCOUNT</button>
       </div>
     </main>
   </body>
