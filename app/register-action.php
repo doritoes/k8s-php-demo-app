@@ -24,11 +24,13 @@ $pwd2 = mysqli_real_escape_string($connection, $_POST['password2'] ?? '');
 $gen = mysqli_real_escape_string($connection, $_POST['gender'] ?? '');
 $con = mysqli_real_escape_string($connection, $_POST['contact'] ?? '');
 
+// Sanity checks
 if (!$email || !$pwd1 || !$pwd2 || $pwd1 !== $fwd2) {
     header("Location: register.php");
     exit; // Not submitted correctly
 }
 
+// Check for existing user
 $stmt = mysqli_prepare($connection, "SELECT email FROM app_user WHERE email = ?");
 mysqli_stmt_bind_param($stmt, "s", $email);
 mysqli_stmt_execute($stmt);
@@ -37,14 +39,20 @@ if (mysqli_stmt_fetch($stmt)) {
     exit; // user exists, prevent further execution
 }
 
+// Create new user
 $stmt = mysqli_prepare($connection, "INSERT INTO app_user (fname, lname, email, password, gender, contact) VALUES (?, ?, ?, ?, ?, ?)");
 $password_hash = password_hash($pwd1, PASSWORD_DEFAULT);
 mysqli_stmt_bind_param($stmt, "ssssss", $fname, $lname, $email, $password_hash, $gen, $con);
 mysqli_stmt_execute($stmt);
 
+// Handle unexpected results
 if (!mysqli_stmt_affected_rows($stmt)) {
-  exit("An error occurred. Please try again later.");
+    // Handle errors gracefully
+    header('HTTP/1.1 500 Internla Server Error'); // Set appropriate HTTP status code
+    echo "Error: An error occurred. Please try again later.";
+    exit; // Stop further execution
 }
-header("Location: register-success.php");
+// Successful registration
+header("Location: login-register.php");
 mysqli_close($connection); 
 ?>
