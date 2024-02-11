@@ -29,6 +29,7 @@ if (mysqli_stmt_execute($stmt)) {
   if (mysqli_stmt_fetch($stmt)) {
     if ($pwd === $credential) {
       // Prepared statement for password update
+      mysqli_stmt_close($stmt);
       $stmt = mysqli_prepare($connection, "UPDATE app_user SET password = ? WHERE email = ?");
       mysqli_stmt_bind_param($stmt, "ss", $npwd, $a);
       mysqli_stmt_execute($stmt);
