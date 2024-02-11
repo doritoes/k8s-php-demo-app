@@ -19,16 +19,14 @@ $login = htmlspecialchars($_SESSION['login']);
   </head>
   <body>		
     <header>
-      <div class="body">
-        <span class="welcome"><strong>Welcome</strong> &nbsp<?php echo $fname; echo " " ; echo $lname ;?></span>
-        <p><span class="welcome">Last logged in at: <?php echo $login; ?></span></p>
-        <nav>
-          <a href="index.php">Home</a>
-        </nav>
-        <nav>
-          <a href="logout.php">Log Out</a>
-        </nav>
-      </div>
+      <span class="welcome"><strong>Welcome</strong> &nbsp<?php echo $fname; echo " " ; echo $lname ;?></span>
+      <p><span class="welcome">Last logged in at: <?php echo $login; ?></span></p>
+      <nav>
+        <a href="index.php">Home</a>
+      </nav>
+      <nav>
+        <a href="logout.php">Log Out</a>
+      </nav>
     </header>
     <main>
       <div class="form">
