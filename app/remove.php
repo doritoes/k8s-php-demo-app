@@ -31,18 +31,20 @@ $login = htmlspecialchars($_SESSION['login']);
       </div>
     </header>
     <main>
-      <form action="rem.php" method="post">
-        <fieldset>
-          <legend>Remove Account</legend>
-          <p>
-            <label for="password">Enter Password</label>
-            <input type="password" name="password" required>
-          </p>
-          <p>
-            <input type="submit" value="CONFIRM">
-          </p>
-        </fieldset>
-      </form>		
+      <div class="form">
+        <form action="rem.php" method="post">
+          <fieldset>
+            <legend>Remove Account</legend>
+            <p>
+              <label for="password">Enter Password</label>
+              <input type="password" name="password" required>
+            </p>
+            <p>
+              <input type="submit" value="CONFIRM">
+            </p>
+          </fieldset>
+        </form>
+      </div>
     </main>
   </body>
 </html>
