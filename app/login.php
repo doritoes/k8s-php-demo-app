@@ -1,50 +1,35 @@
 <?php
 $configs = include('conf/config.php');
 session_start();
-// Connect to the database
-try {
-  $connection = mysqli_connect($configs['host'], $configs['username'], $configs['password'], $configs['dbname']);
-  if (!$connection) {
-    throw new Exception('Database connection failed: ' . mysqli_connect_error());
-  }
-  $name = mysqli_real_escape_string($connection, $_POST['uname'] ?? '');
-  $password = mysqli_real_escape_string($connection, $_POST['password'] ?? '');
-  $stmt = mysqli_prepare($connection, "SELECT email, password, fname, lname, dob, gender, contact, address, login FROM app_user WHERE email = ?");
-  mysqli_stmt_bind_param($stmt, "s", $name);
-  if (mysqli_stmt_execute($stmt)) {
-    mysqli_stmt_bind_result($stmt, $email, $credential, $fname, $lname, $dob, $gender, $contact, $address, $login);
-    if (mysqli_stmt_fetch($stmt)) {
-      if ($password === $credential) {
-        $now = date('Y-m-d H:i:s'); // Get current datetime in YYYY-MM-DD HH:MM:SS format
-        $_SESSION['status'] = "Active";
-        $_SESSION['fname'] = $fname;
-        $_SESSION['lname'] = $lname;
-        $_SESSION['email'] = $email;
-        $_SESSION['login'] = $now;
-        $_SESSION['address'] = $address;
-        $_SESSION['dob'] = $dob;
-        $_SESSION['gender'] = $gender;
-        $_SESSION['contact'] = $contact;
-        mysqli_stmt_close($stmt);
-        $stmt = mysqli_prepare($connection, "UPDATE app_user SET login = ? WHERE email = ?");
-        mysqli_stmt_bind_param($stmt, "ss", $now, $email);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_close($stmt);
-        header("Location: success.php");
-        exit;
-      }
-    }
-  }
-} catch (Exception $e) {
-    // Handle errors gracefully
-    header('HTTP/1.1 503 Service Unavailable'); // Set appropriate HTTP status code
-    echo "Error: Unable to connect to the database. Please try again later.";
-    // Optionally log the error for debugging:
-    error_log($e->getMessage());
-    exit; // Stop further execution
-} finally {
-    mysqli_close($connection); 
-}
-session_destroy();
-header("Location: error.php");
 ?>
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title><?php echo $configs['appname']; ?></title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="login-page">
+      <div class="form">
+        <form action="login.php" method="post">
+          <fieldset>
+            <legend>Log In</legend>
+            <p>
+              <label for="uname">Username:</label>
+              <input type="text" placeholder="username" name="uname" required>
+            </p>
+            <p>
+              <label for="password">Password:</label>
+              <input type="password" placeholder="password" name="password" required>
+            </p>
+            <p>
+              <input type="submit" value="login">
+            </p>
+          </fieldset>
+          <p class="message">Not registered? <a href="signup.php">Create an account</a></p>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
