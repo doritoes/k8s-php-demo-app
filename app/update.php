@@ -24,7 +24,7 @@ $gender = htmlspecialchars($_SESSION['gender'] ?? '');
   </head>
   <body>
     <header>
-      <span class="welcome">Welcome &nbsp<?php echo $fname; echo " " ; echo $lname ; ?></span>
+      <span class="welcome"><strong>Welcome</strong> &nbsp<?php echo $fname; echo " " ; echo $lname ; ?></span>
       <p><span class="welcome">Last logged in at: <?php echo $login; ?></span></p>
       <nav>
         <a href="success.php">Home</a>
@@ -68,6 +68,6 @@ $gender = htmlspecialchars($_SESSION['gender'] ?? '');
           </fieldset>
         </form>
       </div>
-  </main>
+    </main>
   </body>
 </html>
