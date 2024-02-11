@@ -33,7 +33,7 @@ $login = htmlspecialchars($_SESSION['login']);
       <div class="form">
         <form action="unregister-action.php" method="post">
           <fieldset>
-            <legend>Confirm Password</legend>
+            <legend>Remove Account</legend>
               <label for="password">Enter Password</label>
               <input type="password" name="password" required>
             </p>
