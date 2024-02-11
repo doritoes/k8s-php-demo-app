@@ -38,7 +38,7 @@ function validate() {
               <input type="text" name="fname" placeholder="first name"pattern="^[a-zA-Z]+$" title="Please enter letters only" required>
             </p>
             <p>
-              <label for="lname>Last name:</label>
+              <label for="lname">Last name:</label>
               <input type="text" name="lname" placeholder="last name" pattern="^[a-zA-Z]+$" title="Please enter letters only" required>
             </p>
             <p>
