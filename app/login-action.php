@@ -30,7 +30,7 @@ try {
         mysqli_stmt_bind_param($stmt, "ss", $now, $email);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
-        header("Location: success.php");
+        header("Location: index.php");
         exit;
       }
     }
