@@ -20,7 +20,7 @@ $login = htmlspecialchars($_SESSION['login']);
   <body>		
     <header>
       <span class="welcome"><strong>Welcome</strong> &nbsp<?php echo $fname; echo " " ; echo $lname ;?></span>
-      <p><span class="Welcome"> Last logged in at: <?php echo $login; ?></span></p>
+      <p><span class="welcome">Last logged in at: <?php echo $login; ?></span></p>
       <nav>
         <a href="index.php">Home</a>
       </nav>
@@ -29,7 +29,7 @@ $login = htmlspecialchars($_SESSION['login']);
       </nav>
     </header>
     <main>
-      <div class="error">Please give correct password</span>
+      <div class="error">Please give correct password</div>
       <div class="form">
         <form action="unregister-action.php" method="post">
           <fieldset>
