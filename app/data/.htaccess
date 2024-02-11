@@ -1,2 +1,5 @@
 Options -Indexes
-Deny from all
+<Files *>
+    Order deny,allow
+    Deny from all
+</Files>
