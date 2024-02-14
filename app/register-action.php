@@ -21,7 +21,6 @@ $lname = mysqli_real_escape_string($connection, $_POST['lname'] ?? '');
 $email = mysqli_real_escape_string($connection, $_POST['email'] ?? '');
 $pwd1 = mysqli_real_escape_string($connection, $_POST['password1'] ?? '');
 $pwd2 = mysqli_real_escape_string($connection, $_POST['password2'] ?? '');
-$gen = mysqli_real_escape_string($connection, $_POST['gender'] ?? '');
 $con = mysqli_real_escape_string($connection, $_POST['contact'] ?? '');
 
 // Sanity checks
@@ -40,9 +39,9 @@ if (mysqli_stmt_fetch($stmt)) {
 }
 
 // Create new user
-$stmt = mysqli_prepare($connection, "INSERT INTO app_user (fname, lname, email, password, gender, contact) VALUES (?, ?, ?, ?, ?, ?)");
+$stmt = mysqli_prepare($connection, "INSERT INTO app_user (fname, lname, email, password, contact) VALUES (?, ?, ?, ?, ?, ?)");
 $password_hash = password_hash($pwd1, PASSWORD_DEFAULT);
-mysqli_stmt_bind_param($stmt, "ssssss", $fname, $lname, $email, $password_hash, $gen, $con);
+mysqli_stmt_bind_param($stmt, "ssssss", $fname, $lname, $email, $password_hash, $con);
 mysqli_stmt_execute($stmt);
 
 // Handle unexpected results
