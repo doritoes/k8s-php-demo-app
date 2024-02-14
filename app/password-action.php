@@ -17,7 +17,7 @@ try {
     exit; // Stop further execution
 }
 // Retrieve and escape form data
-$a = mysqli_real_escape_string($connection, $_SESSION['email'] ?? ''); // Use ?? for default values
+$username = mysqli_real_escape_string($connection, $_SESSION['email'] ?? ''); // Use ?? for default values
 $pwd = mysqli_real_escape_string($connection, $_POST['password'] ?? '');
 $npwd = mysqli_real_escape_string($connection, $_POST['password1'] ?? '');
 if ($pwd === $npwd) {
@@ -26,7 +26,7 @@ if ($pwd === $npwd) {
 }
 
 $stmt = mysqli_prepare($connection, "SELECT password FROM app_user WHERE email = ?");
-mysqli_stmt_bind_param($stmt, "s", $a);
+mysqli_stmt_bind_param($stmt, "s", $username);
 if (mysqli_stmt_execute($stmt)) {
   mysqli_stmt_bind_result($stmt, $hashed_password);
   if (mysqli_stmt_fetch($stmt)) {
@@ -35,7 +35,7 @@ if (mysqli_stmt_execute($stmt)) {
       // Prepared statement for password update
       mysqli_stmt_close($stmt);
       $stmt = mysqli_prepare($connection, "UPDATE app_user SET password = ? WHERE email = ?");
-      mysqli_stmt_bind_param($stmt, "ss", $new_password_hash, $a);
+      mysqli_stmt_bind_param($stmt, "ss", $new_password_hash, $username);
       mysqli_stmt_execute($stmt);
       header("Location: login-again.php");
       session_destroy();
