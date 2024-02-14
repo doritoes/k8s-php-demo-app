@@ -7,10 +7,10 @@ try {
   if (!$connection) {
     throw new Exception('Database connection failed: ' . mysqli_connect_error());
   }
-  $name = mysqli_real_escape_string($connection, $_POST['uname'] ?? '');
+  $username = mysqli_real_escape_string($connection, $_POST['uname'] ?? '');
   $password = mysqli_real_escape_string($connection, $_POST['password'] ?? '');
   $stmt = mysqli_prepare($connection, "SELECT email, password, fname, lname, dob, contact, address, login FROM app_user WHERE email = ?");
-  mysqli_stmt_bind_param($stmt, "s", $name);
+  mysqli_stmt_bind_param($stmt, "s", $username);
   if (mysqli_stmt_execute($stmt)) {
     mysqli_stmt_bind_result($stmt, $email, $hashed_password, $fname, $lname, $dob, $contact, $address, $login);
     if (mysqli_stmt_fetch($stmt)) {
