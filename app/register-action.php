@@ -39,9 +39,9 @@ if (mysqli_stmt_fetch($stmt)) {
 }
 
 // Create new user
-$stmt = mysqli_prepare($connection, "INSERT INTO app_user (fname, lname, email, password, contact) VALUES (?, ?, ?, ?, ?, ?)");
+$stmt = mysqli_prepare($connection, "INSERT INTO app_user (fname, lname, email, password, contact) VALUES (?, ?, ?, ?, ?)");
 $password_hash = password_hash($pwd1, PASSWORD_DEFAULT);
-mysqli_stmt_bind_param($stmt, "ssssss", $fname, $lname, $email, $password_hash, $con);
+mysqli_stmt_bind_param($stmt, "sssss", $fname, $lname, $email, $password_hash, $con);
 mysqli_stmt_execute($stmt);
 
 // Handle unexpected results
