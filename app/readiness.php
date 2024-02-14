@@ -7,7 +7,7 @@ try {
   if (!$connection) {
     throw new Exception('Database connection failed: ' . mysqli_connect_error());
   }
-  $result = $db->query("SELECT 1 FROM app_user");
+  $result = $connection->query("SELECT 1 FROM app_user");
   echo "OK\n"; // Simple output signaling liveness
   exit(0); // Success exit code
 } catch (Exception $e) {
