@@ -42,10 +42,6 @@ function validate() {
               <input type="text" name="lname" placeholder="last name" pattern="^[a-zA-Z]+$" title="Please enter letters only" required>
             </p>
             <p>
-              <label for="gender">Gender:</label>
-              <input type="radio" name="gender" value="male" checked> Male <input type="radio" name="gender" value="female"> Female
-            </p>
-            <p>
               <label for="email">Email address:</label>
               <input type="email" name="email" placeholder="email address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please enter valid email address" required>
             </p>

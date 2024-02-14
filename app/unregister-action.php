@@ -12,17 +12,17 @@ try {
   if (!$connection) {
     throw new Exception('Database connection failed: ' . mysqli_connect_error());
   }
-  $a = mysqli_real_escape_string($connection, $_SESSION['email'] ?? '');
+  $username = mysqli_real_escape_string($connection, $_SESSION['email'] ?? '');
   $pwd = mysqli_real_escape_string($connection, $_POST['password'] ?? '');
   $stmt = mysqli_prepare($connection, "SELECT password FROM app_user WHERE email = ?");
-  mysqli_stmt_bind_param($stmt, "s", $a);
+  mysqli_stmt_bind_param($stmt, "s", $username);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_bind_result($stmt, $hashed_password);
   if (mysqli_stmt_fetch($stmt) && password_verify($pwd, $hashed_password)) {
     // delete user
     mysqli_stmt_close($stmt);
     $stmt = mysqli_prepare($connection, "DELETE FROM app_user WHERE email = ?");
-    mysqli_stmt_bind_param($stmt, "s", $a);
+    mysqli_stmt_bind_param($stmt, "s", $username);
     if (mysqli_stmt_execute($stmt)) {
       session_destroy();
       mysqli_stmt_close($stmt);

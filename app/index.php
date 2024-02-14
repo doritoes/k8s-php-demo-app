@@ -12,7 +12,6 @@ $email = htmlspecialchars($_SESSION['email']);
 $address = htmlspecialchars($_SESSION['address']);
 $dob = htmlspecialchars($_SESSION['dob']);
 $login = htmlspecialchars($_SESSION['login']);
-$gender = htmlspecialchars($_SESSION['gender']);
 $contact = htmlspecialchars($_SESSION['contact']);
 ?>
 <!DOCTYPE html>
@@ -40,7 +39,6 @@ $contact = htmlspecialchars($_SESSION['contact']);
       <p>Contact Number: <?php echo $contact;?></p>
       <p>Address: <?php echo $address;?></p>
       <p>Date of Birth: <?php $newDate = date("m/d/Y", strtotime($dob)); echo $newDate;?></p>
-      <p>You are: <?php echo $gender;?></p>
       <div class="button-container">
         <button onclick="location.href='update.php'">UPDATE DETAILS</button>
         <button onclick="location.href='password.php'">CHANGE PASSWORD</button>
