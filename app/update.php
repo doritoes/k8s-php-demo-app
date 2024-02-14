@@ -13,7 +13,6 @@ $login = htmlspecialchars($_SESSION['login']);
 $contact = htmlspecialchars($_SESSION['contact'] ?? '');
 $address = htmlspecialchars($_SESSION['address'] ?? '');
 $dob = htmlspecialchars($_SESSION['dob'] ?? '');
-$gender = htmlspecialchars($_SESSION['gender'] ?? '');
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
